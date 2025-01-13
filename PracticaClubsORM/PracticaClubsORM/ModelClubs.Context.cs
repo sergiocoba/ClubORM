@@ -13,10 +13,10 @@ namespace PracticaClubsORM
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ClubsEntities6 : DbContext
+    public partial class ClubEntities : DbContext
     {
-        public ClubsEntities6()
-            : base("name=ClubsEntities6")
+        public ClubEntities()
+            : base("name=ClubEntities")
         {
         }
     
@@ -30,6 +30,7 @@ namespace PracticaClubsORM
         public virtual DbSet<Contacto> Contacto { get; set; }
         public virtual DbSet<Continentes> Continentes { get; set; }
         public virtual DbSet<Galeria> Galeria { get; set; }
+        public virtual DbSet<MediaVisual> MediaVisual { get; set; }
         public virtual DbSet<Pais> Pais { get; set; }
         public virtual DbSet<Ubicacion> Ubicacion { get; set; }
     }

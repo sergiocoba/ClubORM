@@ -3,25 +3,36 @@ GO
 USE Clubs;
 GO
 
-DROP DATABASE Clubs
-USE bdEmpresa
-
-CREATE TABLE Clubs (
-    ClubID INT IDENTITY(1,1) PRIMARY KEY,
-    Nombre NVARCHAR(100) NOT NULL,
-    Reseña NVARCHAR(MAX),
-	Fundacion INT,
-    Valoracion TINYINT CHECK (Valoracion BETWEEN 1 AND 5),
-    Horario NVARCHAR(500),
-	CategoriaID INT FOREIGN KEY REFERENCES Categorias(CategoriaID) ON DELETE CASCADE,
-	PaisID INT FOREIGN KEY REFERENCES Pais(PaisID) ON DELETE CASCADE
-);
-SELECT * FROM Clubs
 
 CREATE TABLE Categorias (
     CategoriaID INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(50) NOT NULL UNIQUE
 );
+
+CREATE TABLE Continentes (
+    ContinenteID INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL UNIQUE
+);
+
+
+CREATE TABLE Pais (
+    PaisID INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL UNIQUE,
+    ContinenteID INT NOT NULL FOREIGN KEY REFERENCES Continentes(ContinenteID) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Clubs (
+    ClubID INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    Reseña NVARCHAR(MAX),
+    Fundacion INT,
+    Valoracion TINYINT CHECK (Valoracion BETWEEN 1 AND 5),
+    Horario NVARCHAR(500),
+    CategoriaID INT FOREIGN KEY REFERENCES Categorias(CategoriaID) ON DELETE CASCADE,
+    PaisID INT FOREIGN KEY REFERENCES Pais(PaisID) ON DELETE CASCADE
+);
+
 
 CREATE TABLE Ubicacion (
     UbicacionID INT IDENTITY(1,1) PRIMARY KEY,
@@ -52,20 +63,35 @@ CREATE TABLE Galeria (
     PRIMARY KEY (ClubID, Foto),
     FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID) ON DELETE CASCADE
 );
-ALTER TABLE MediaVisual
-ADD PRIMARY KEY (ClubID);
 
 
-CREATE TABLE Continentes (
-    ContinenteID INT IDENTITY(1,1) PRIMARY KEY,
-    Nombre NVARCHAR(50) NOT NULL UNIQUE
-);
+INSERT INTO Continentes (Nombre)
+VALUES 
+('Europa'),
+('América'),
+('África'),
+('Oceanía'),
+('Antartida'),
+('Asia');
 
-CREATE TABLE Pais (
-    PaisID INT IDENTITY(1,1) PRIMARY KEY,
-    Nombre NVARCHAR(50) NOT NULL UNIQUE,
-    ContinenteID INT NOT NULL FOREIGN KEY REFERENCES Continentes(ContinenteID) ON DELETE CASCADE
-);
+INSERT INTO Pais (Nombre, ContinenteID)
+VALUES
+('España', 1),
+('Francia', 1),
+('Estados Unidos', 2), 
+('Sudáfrica', 3), 
+('Canadá', 2), 
+('Argentina', 2),
+('Nueva Zelanda', 4),
+('Irlanda', 1), 
+('México', 2),
+('Australia', 4);
+
+INSERT INTO Categorias (Nombre)
+VALUES
+('Fútbol'),
+('Rugby'),
+('Baloncesto');
 
 INSERT INTO Clubs (Nombre, Reseña, Fundacion, Valoracion, Horario, CategoriaID, PaisID)
 VALUES 
@@ -83,8 +109,6 @@ VALUES
 ('Los Angeles Clippers', 'Equipo de la NBA con base en Los Ángeles.', 1970, 4, 'Miércoles a Domingo: 11:00 - 19:00', 3, 3),
 ('Rugby Reds Queensland', 'Equipo de rugby profesional australiano.', 1882, 4, 'Martes a Viernes: 8:00 - 17:00', 2, 10);
 
-
-
 INSERT INTO Ubicacion (ClubID, Ciudad, Direccion, CodigoPostal)
 VALUES
 (1, 'Madrid', 'Av. Santiago Bernabéu, 1', '28036'),
@@ -100,67 +124,3 @@ VALUES
 (11, 'Guadalajara', 'Calle Colomos 2300', '44660'),
 (12, 'Los Ángeles', '1111 S Figueroa St', '90015'),
 (13, 'Brisbane', '40 Castlemaine St', '4000');
-
-INSERT INTO Contacto (ClubID, Telefono, Email)
-VALUES
-(1, '+34910012345', 'info@realmadrid.com'),
-(2, '+33561422345', 'contact@rugbytoulouse.fr'),
-(3, '+12132223456', 'info@lakers.com'),
-(4, '+27212322345', 'info@stormers.co.za'),
-(5, '+14162223456', 'info@raptors.com'),
-(6, '+54112322345', 'info@bocajuniors.com'),
-(7, '+64422322345', 'info@allblacks.co.nz'),
-(8, '+541147312345', 'info@riverplate.com'),
-(9, '+34910123456', 'info@realmadridbasket.com'),
-(10, '+35312342345', 'info@leinsterrugby.ie'),
-(11, '+523334567890', 'info@chivas.com.mx'),
-(12, '+12132342345', 'info@clippers.com'),
-(13, '+61731234567', 'info@reds.com.au');
-
-INSERT INTO Continentes (Nombre)
-VALUES 
-('Europa'),
-('América'),
-('África'),
-('Oceanía'),
-('Antartida'),
-('Asia');
-
-
-
-INSERT INTO Pais (Nombre, ContinenteID)
-VALUES
-('España', 1),
-('Francia', 1),
-('Estados Unidos', 2), 
-('Sudáfrica', 3), 
-('Canadá', 2), 
-('Argentina', 2),
-('Nueva Zelanda', 4),
-('Irlanda', 1), 
-('México', 2),
-('Australia', 4);
-
-
-INSERT INTO Categorias (Nombre)
-VALUES
-('Fútbol'),
-('Rugby'),
-('Baloncesto');
-SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'MediaVisual';
-
-INSERT INTO MediaVisual (ClubID, GoogleMapsURL)
-VALUES
-(1,'https://www.google.com/maps/@40.453054,-3.688344,18z'),
-(2, 'https://www.google.com/maps/@43.5776734,1.4681809,18z'),
-(3, 'https://www.google.com/maps/@34.0430042,-118.2698896,18z'),
-(4, 'https://www.google.com/maps/@-33.9036452,18.4085026,902m,18z'),
-(5, 'https://www.google.com/maps/@43.6432862,-79.3804312,331m,18z'),
-(6,  'https://www.google.com/maps/@-34.63574,-58.3659794,447m,18z'),
-(7, 'https://www.google.com/maps/@-36.87481,174.7438657,435m,18z'),
-(8,'https://www.google.com/maps/@-34.5456,-58.4493,18z'),
-(9,  'https://www.google.com/maps/@40.4258,-3.6717,18z'),
-(10,  'https://www.google.com/maps/@53.3331,-6.2297,18z'),
-(11,  'https://www.google.com/maps/@20.6743,-103.3475,18z'),
-(12, 'https://www.google.com/maps/@34.0430,-118.2673,18z'),
-(13,  'https://www.google.com/maps/@-27.4732,153.0146,18z');

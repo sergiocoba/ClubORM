@@ -13,8 +13,8 @@ namespace PracticaClubsORM.FORMULARIS
     public partial class FrmClubs : Form
     {
         FrmAMBclubs aMBclubs;
-        private ClubsBaseD clubsBD {  get; set; } = new ClubsBaseD();
-        public FrmClubs(ClubsBaseD xclub)
+        private ClubEntities clubsBD {  get; set; } = new ClubEntities();
+        public FrmClubs(ClubEntities xclub)
         {
             InitializeComponent();
             clubsBD = xclub;
@@ -33,7 +33,7 @@ namespace PracticaClubsORM.FORMULARIS
                             {
                                 nombre = c.Nombre,
                                 pais = c.Pais.Nombre,
-                                fundacion = c.fundacion
+                                fundacion = c.Fundacion
                             };
             dgvClubs.DataSource = qryClyubs.ToList();
                             

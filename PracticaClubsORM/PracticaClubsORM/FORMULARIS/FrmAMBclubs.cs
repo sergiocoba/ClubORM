@@ -12,10 +12,12 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmAMBclubs : Form
     {
-        private ClubsBaseD clubbd { get; set; } = new ClubsBaseD();
+        private ClubEntities clubbd { get; set; } = new ClubEntities();
         Char op { get; set; } = '\0';
-       
-        public FrmAMBclubs(char opcio, ClubsBaseD bd)
+
+        //variable
+        Boolean bFirst = true;
+        public FrmAMBclubs(char opcio, ClubEntities bd)
         {
             InitializeComponent();
             clubbd = bd;
@@ -24,12 +26,32 @@ namespace PracticaClubsORM.FORMULARIS
 
         private void FrmAMBclubs_Load(object sender, EventArgs e)
         {
+            omplirComboPaises()
+
             switch (op)
             {
                 case 'A': this.Text = "Alta d'un nou club"; break;
 
                 case 'M': this.Text = "Modificar el clubs"; break;
             }
+        }
+
+        private void omplirComboPaises()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!bFirst && cbPais.SelectedValue != null)
+            {
+                getDadesPaises();
+            }
+        }
+
+        private void getDadesPaises()
+        {
+            
         }
     }
 }
