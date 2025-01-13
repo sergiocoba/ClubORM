@@ -13,8 +13,8 @@ namespace PracticaClubsORM.FORMULARIS
     public partial class FrmClubs : Form
     {
         FrmAMBclubs aMBclubs;
-        private ClubsGestio clubsBD {  get; set; } = new ClubsGestio();
-        public FrmClubs(ClubsGestio xclub)
+        private ClubsBaseD clubsBD {  get; set; } = new ClubsBaseD();
+        public FrmClubs(ClubsBaseD xclub)
         {
             InitializeComponent();
             clubsBD = xclub;

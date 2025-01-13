@@ -1,14 +1,16 @@
 CREATE DATABASE Clubs;
 GO
-
 USE Clubs;
 GO
+
+DROP DATABASE Clubs
+USE bdEmpresa
 
 CREATE TABLE Clubs (
     ClubID INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
     Reseña NVARCHAR(MAX),
-	Fundacion DATE,
+	Fundacion INT,
     Valoracion TINYINT CHECK (Valoracion BETWEEN 1 AND 5),
     Horario NVARCHAR(500),
 	CategoriaID INT FOREIGN KEY REFERENCES Categorias(CategoriaID) ON DELETE CASCADE,
@@ -36,11 +38,12 @@ CREATE TABLE Contacto (
     Email NVARCHAR(100)
 );
 
-CREATE TABLE Media (
+CREATE TABLE MediaVisual (
     ClubID INT FOREIGN KEY REFERENCES Clubs(ClubID) ON DELETE CASCADE,
-    FotoPrincipal NVARCHAR(255),
+    Logo NVARCHAR(255),
     MiniaturaWeb NVARCHAR(255),
-    GoogleMapsURL NVARCHAR(255)
+    GoogleMapsURL NVARCHAR(255),
+    PRIMARY KEY (ClubID, GoogleMapsURL) 
 );
 
 CREATE TABLE Galeria (
@@ -49,6 +52,8 @@ CREATE TABLE Galeria (
     PRIMARY KEY (ClubID, Foto),
     FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID) ON DELETE CASCADE
 );
+ALTER TABLE MediaVisual
+ADD PRIMARY KEY (ClubID);
 
 
 CREATE TABLE Continentes (
@@ -62,21 +67,22 @@ CREATE TABLE Pais (
     ContinenteID INT NOT NULL FOREIGN KEY REFERENCES Continentes(ContinenteID) ON DELETE CASCADE
 );
 
-INSERT INTO Clubs (Nombre, Ressenya, Valoracion, Horario, CategoriaID, PaisID)
+INSERT INTO Clubs (Nombre, Reseña, Fundacion, Valoracion, Horario, CategoriaID, PaisID)
 VALUES 
-('Club Futbol Madrid', 'Club histórico con múltiples títulos.', 5, 'Lunes a Viernes: 10:00 - 20:00', 1, 1),
-('Club de Rugby Toulouse', 'Equipo de rugby destacado en Europa.', 4, 'Martes a Sábado: 9:00 - 18:00', 2, 2),
-('Angeles Lakers', 'Equipo de la NBA con gran tradición.', 5, 'Todos los días: 8:00 - 22:00', 3, 3),
-('Rugby Stormers', 'Equipo profesional en la liga internacional.', 4, 'Martes a Viernes: 9:00 - 17:00', 2, 4),
-('Basket Toronto Raptors', 'Campeones de la NBA en 2019.', 5, 'Todos los días: 10:00 - 21:00', 3, 5),
-('Futbol Boca Juniors', 'Uno de los clubes más emblemáticos de Argentina.', 5, 'Miércoles a Domingo: 11:00 - 19:00', 1, 6),
-('Club Rugby All Blacks', 'Conocidos por su Haka y gran desempeño mundial.', 5, 'Lunes a Viernes: 8:00 - 18:00', 2, 7),
-('Club Atlético River Plate', 'Uno de los clubes más grandes de Argentina.', 5, 'Lunes a Viernes: 9:00 - 18:00', 1, 6),
-('Club Baloncesto Real Madrid', 'Equipo de baloncesto del Real Madrid.', 5, 'Todos los días: 10:00 - 22:00', 3, 1),
-('Club Rugby Leinster', 'Equipo de rugby profesional en Dublín.', 5, 'Lunes a Viernes: 8:00 - 16:00', 2, 8),
-('Club Deportivo Guadalajara', 'Mejor conocido como Chivas.', 4, 'Todos los días: 9:00 - 21:00', 1, 9),
-('Los Angeles Clippers', 'Equipo de la NBA con base en Los Ángeles.', 4, 'Miércoles a Domingo: 11:00 - 19:00', 3, 3),
-('Rugby Reds Queensland', 'Equipo de rugby profesional australiano.', 4, 'Martes a Viernes: 8:00 - 17:00', 2, 10);
+('Club Futbol Madrid', 'Club histórico con múltiples títulos.', 1902, 5, 'Lunes a Viernes: 10:00 - 20:00', 1, 1),
+('Club de Rugby Toulouse', 'Equipo de rugby destacado en Europa.', 1907, 4, 'Martes a Sábado: 9:00 - 18:00', 2, 2),
+('Angeles Lakers', 'Equipo de la NBA con gran tradición.', 1947, 5, 'Todos los días: 8:00 - 22:00', 3, 3),
+('Rugby Stormers', 'Equipo profesional en la liga internacional.', 1998, 4, 'Martes a Viernes: 9:00 - 17:00', 2, 4),
+('Basket Toronto Raptors', 'Campeones de la NBA en 2019.', 1995, 5, 'Todos los días: 10:00 - 21:00', 3, 5),
+('Futbol Boca Juniors', 'Uno de los clubes más emblemáticos de Argentina.', 1905, 5, 'Miércoles a Domingo: 11:00 - 19:00', 1, 6),
+('Club Rugby All Blacks', 'Conocidos por su Haka y gran desempeño mundial.', 1903, 5, 'Lunes a Viernes: 8:00 - 18:00', 2, 7),
+('Club Atlético River Plate', 'Uno de los clubes más grandes de Argentina.', 1901, 5, 'Lunes a Viernes: 9:00 - 18:00', 1, 6),
+('Club Baloncesto Real Madrid', 'Equipo de baloncesto del Real Madrid.', 1931, 5, 'Todos los días: 10:00 - 22:00', 3, 1),
+('Club Rugby Leinster', 'Equipo de rugby profesional en Dublín.', 1875, 5, 'Lunes a Viernes: 8:00 - 16:00', 2, 8),
+('Club Deportivo Guadalajara', 'Mejor conocido como Chivas.', 1906, 4, 'Todos los días: 9:00 - 21:00', 1, 9),
+('Los Angeles Clippers', 'Equipo de la NBA con base en Los Ángeles.', 1970, 4, 'Miércoles a Domingo: 11:00 - 19:00', 3, 3),
+('Rugby Reds Queensland', 'Equipo de rugby profesional australiano.', 1882, 4, 'Martes a Viernes: 8:00 - 17:00', 2, 10);
+
 
 
 INSERT INTO Ubicacion (ClubID, Ciudad, Direccion, CodigoPostal)
@@ -116,7 +122,9 @@ VALUES
 ('Europa'),
 ('América'),
 ('África'),
-('Oceanía');
+('Oceanía'),
+('Antartida'),
+('Asia');
 
 
 
@@ -139,3 +147,20 @@ VALUES
 ('Fútbol'),
 ('Rugby'),
 ('Baloncesto');
+SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'MediaVisual';
+
+INSERT INTO MediaVisual (ClubID, GoogleMapsURL)
+VALUES
+(1,'https://www.google.com/maps/@40.453054,-3.688344,18z'),
+(2, 'https://www.google.com/maps/@43.5776734,1.4681809,18z'),
+(3, 'https://www.google.com/maps/@34.0430042,-118.2698896,18z'),
+(4, 'https://www.google.com/maps/@-33.9036452,18.4085026,902m,18z'),
+(5, 'https://www.google.com/maps/@43.6432862,-79.3804312,331m,18z'),
+(6,  'https://www.google.com/maps/@-34.63574,-58.3659794,447m,18z'),
+(7, 'https://www.google.com/maps/@-36.87481,174.7438657,435m,18z'),
+(8,'https://www.google.com/maps/@-34.5456,-58.4493,18z'),
+(9,  'https://www.google.com/maps/@40.4258,-3.6717,18z'),
+(10,  'https://www.google.com/maps/@53.3331,-6.2297,18z'),
+(11,  'https://www.google.com/maps/@20.6743,-103.3475,18z'),
+(12, 'https://www.google.com/maps/@34.0430,-118.2673,18z'),
+(13,  'https://www.google.com/maps/@-27.4732,153.0146,18z');

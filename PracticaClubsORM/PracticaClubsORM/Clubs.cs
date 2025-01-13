@@ -18,12 +18,14 @@ namespace PracticaClubsORM
         public Clubs()
         {
             this.Contacto = new HashSet<Contacto>();
+            this.Galeria = new HashSet<Galeria>();
             this.Ubicacion = new HashSet<Ubicacion>();
         }
     
         public int ClubID { get; set; }
         public string Nombre { get; set; }
-        public string Ressenya { get; set; }
+        public string Reseña { get; set; }
+        public Nullable<int> Fundacion { get; set; }
         public Nullable<byte> Valoracion { get; set; }
         public string Horario { get; set; }
         public Nullable<int> CategoriaID { get; set; }
@@ -33,6 +35,8 @@ namespace PracticaClubsORM
         public virtual Pais Pais { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contacto> Contacto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Galeria> Galeria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ubicacion> Ubicacion { get; set; }
     }
