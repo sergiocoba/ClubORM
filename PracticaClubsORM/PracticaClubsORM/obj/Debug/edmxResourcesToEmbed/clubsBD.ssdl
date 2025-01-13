@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClubsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="CategoriaID" />
+    </Key>
+    <Property Name="CategoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClubCategorias">
+    <Key>
+      <PropertyRef Name="ClubID" />
+      <PropertyRef Name="CategoriaID" />
+    </Key>
+    <Property Name="ClubID" Type="int" Nullable="false" />
+    <Property Name="CategoriaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clubs">
+    <Key>
+      <PropertyRef Name="ClubID" />
+    </Key>
+    <Property Name="ClubID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Pais" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Continente" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ressenya" Type="nvarchar(max)" />
+    <Property Name="Valoracion" Type="tinyint" />
+    <Property Name="Horario" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="ContactoID" />
+    </Key>
+    <Property Name="ContactoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClubID" Type="int" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Media">
+    <Key>
+      <PropertyRef Name="MediaID" />
+    </Key>
+    <Property Name="MediaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClubID" Type="int" />
+    <Property Name="FotoPrincipal" Type="nvarchar" MaxLength="255" />
+    <Property Name="MiniaturaWeb" Type="nvarchar" MaxLength="255" />
+    <Property Name="Galeria" Type="nvarchar(max)" />
+    <Property Name="GoogleMapsURL" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Ubicacion">
+    <Key>
+      <PropertyRef Name="UbicacionID" />
+    </Key>
+    <Property Name="UbicacionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClubID" Type="int" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="100" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="200" />
+    <Property Name="CodigoPostal" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__ClubCateg__Categ__3E52440B">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClubCategorias" Type="Self.ClubCategorias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="CategoriaID" />
+      </Principal>
+      <Dependent Role="ClubCategorias">
+        <PropertyRef Name="CategoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClubCateg__ClubI__3D5E1FD2">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClubCategorias" Type="Self.ClubCategorias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="ClubID" />
+      </Principal>
+      <Dependent Role="ClubCategorias">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contacto__ClubID__440B1D61">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="ClubID" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Media__ClubID__46E78A0C">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Media" Type="Self.Media" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="ClubID" />
+      </Principal>
+      <Dependent Role="Media">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ubicacion__ClubI__412EB0B6">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="ClubID" />
+      </Principal>
+      <Dependent Role="Ubicacion">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ClubsModelStoreContainer">
+    <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClubCategorias" EntityType="Self.ClubCategorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Media" EntityType="Self.Media" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ClubCateg__Categ__3E52440B" Association="Self.FK__ClubCateg__Categ__3E52440B">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="ClubCategorias" EntitySet="ClubCategorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClubCateg__ClubI__3D5E1FD2" Association="Self.FK__ClubCateg__ClubI__3D5E1FD2">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="ClubCategorias" EntitySet="ClubCategorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contacto__ClubID__440B1D61" Association="Self.FK__Contacto__ClubID__440B1D61">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Contacto" EntitySet="Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Media__ClubID__46E78A0C" Association="Self.FK__Media__ClubID__46E78A0C">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Media" EntitySet="Media" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ubicacion__ClubI__412EB0B6" Association="Self.FK__Ubicacion__ClubI__412EB0B6">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2fe1382335184488b0ca0a138ea38467" Name="Diagram1">
+        <EntityTypeShape EntityType="ClubsModel.Categorias" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubsModel.Clubs" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubsModel.Contacto" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubsModel.Continentes" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubsModel.Pais" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClubsModel.Ubicacion" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="ClubsModel.FK__Clubs__Categoria__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ClubsModel.FK__Clubs__PaisID__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="ClubsModel.FK__Contacto__ClubID__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="ClubsModel.FK__Ubicacion__ClubI__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ClubsModel.FK__Pais__Continente__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClubsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="CategoriaID" />
+    </Key>
+    <Property Name="CategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Clubs" Relationship="Self.ClubCategorias" FromRole="Categorias" ToRole="Clubs" />
+  </EntityType>
+  <EntityType Name="Clubs">
+    <Key>
+      <PropertyRef Name="ClubID" />
+    </Key>
+    <Property Name="ClubID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Continente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ressenya" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Valoracion" Type="Byte" />
+    <Property Name="Horario" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__ClubID__440B1D61" FromRole="Clubs" ToRole="Contacto" />
+    <NavigationProperty Name="Media" Relationship="Self.FK__Media__ClubID__46E78A0C" FromRole="Clubs" ToRole="Media" />
+    <NavigationProperty Name="Ubicacion" Relationship="Self.FK__Ubicacion__ClubI__412EB0B6" FromRole="Clubs" ToRole="Ubicacion" />
+    <NavigationProperty Name="Categorias" Relationship="Self.ClubCategorias" FromRole="Clubs" ToRole="Categorias" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="ContactoID" />
+    </Key>
+    <Property Name="ContactoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClubID" Type="Int32" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK__Contacto__ClubID__440B1D61" FromRole="Contacto" ToRole="Clubs" />
+  </EntityType>
+  <EntityType Name="Media">
+    <Key>
+      <PropertyRef Name="MediaID" />
+    </Key>
+    <Property Name="MediaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClubID" Type="Int32" />
+    <Property Name="FotoPrincipal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MiniaturaWeb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Galeria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GoogleMapsURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK__Media__ClubID__46E78A0C" FromRole="Media" ToRole="Clubs" />
+  </EntityType>
+  <EntityType Name="Ubicacion">
+    <Key>
+      <PropertyRef Name="UbicacionID" />
+    </Key>
+    <Property Name="UbicacionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClubID" Type="Int32" />
+    <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CodigoPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK__Ubicacion__ClubI__412EB0B6" FromRole="Ubicacion" ToRole="Clubs" />
+  </EntityType>
+  <Association Name="FK__Contacto__ClubID__440B1D61">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="ClubID" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Media__ClubID__46E78A0C">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Media" Type="Self.Media" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="ClubID" />
+      </Principal>
+      <Dependent Role="Media">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ubicacion__ClubI__412EB0B6">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="ClubID" />
+      </Principal>
+      <Dependent Role="Ubicacion">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClubCategorias">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="*" />
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ClubsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorias" EntityType="Self.Categorias" />
+    <EntitySet Name="Clubs" EntityType="Self.Clubs" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" />
+    <EntitySet Name="Media" EntityType="Self.Media" />
+    <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" />
+    <AssociationSet Name="FK__Contacto__ClubID__440B1D61" Association="Self.FK__Contacto__ClubID__440B1D61">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Contacto" EntitySet="Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Media__ClubID__46E78A0C" Association="Self.FK__Media__ClubID__46E78A0C">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Media" EntitySet="Media" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ubicacion__ClubI__412EB0B6" Association="Self.FK__Ubicacion__ClubI__412EB0B6">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+    </AssociationSet>
+    <AssociationSet Name="ClubCategorias" Association="Self.ClubCategorias">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Clubs" EntitySet="Clubs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
