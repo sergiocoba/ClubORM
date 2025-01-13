@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,12 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmAMBclubs : Form
     {
-        private ClubEntities clubbd { get; set; } = new ClubEntities();
+        private ClubsEntities7 clubbd { get; set; } = new ClubsEntities7();
         Char op { get; set; } = '\0';
-
+        string base64Image;
         //variable
         Boolean bFirst = true;
-        public FrmAMBclubs(char opcio, ClubEntities bd)
+        public FrmAMBclubs(char opcio, ClubsEntities7 bd)
         {
             InitializeComponent();
             clubbd = bd;
@@ -26,7 +27,7 @@ namespace PracticaClubsORM.FORMULARIS
 
         private void FrmAMBclubs_Load(object sender, EventArgs e)
         {
-            omplirComboPaises()
+            omplirComboPaises();
 
             switch (op)
             {
@@ -36,10 +37,26 @@ namespace PracticaClubsORM.FORMULARIS
             }
         }
 
+        
         private void omplirComboPaises()
         {
-            throw new NotImplementedException();
+            var qryPaises = from e in clubbd.Clubs
+
+                            select new
+                            {
+                                id = e.PaisID,
+                                paisNom = e.Pais.Nombre,
+                            };
+
+            cbPais.DataSource = qryPaises.ToList();
+            cbPais.DisplayMember = "paisNom";
+            cbPais.ValueMember = "id";
+            if (cbPais.Items.Count > 0)
+            {
+                cbPais.SelectedIndex = 0;
+            }
         }
+        
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -52,6 +69,27 @@ namespace PracticaClubsORM.FORMULARIS
         private void getDadesPaises()
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Seleccionar una imagen";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    base64Image = ConvertImageToBase64(openFileDialog.FileName);
+                }
+            }
+        }
+
+        private string ConvertImageToBase64(string imagePath)
+        {
+            byte[] imageBytes = File.ReadAllBytes(imagePath);
+
+            return Convert.ToBase64String(imageBytes);
         }
     }
 }

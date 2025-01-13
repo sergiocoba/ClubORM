@@ -19,7 +19,6 @@ namespace PracticaClubsORM
         {
             this.Contacto = new HashSet<Contacto>();
             this.Galeria = new HashSet<Galeria>();
-            this.MediaVisual = new HashSet<MediaVisual>();
             this.Ubicacion = new HashSet<Ubicacion>();
         }
     
@@ -38,8 +37,7 @@ namespace PracticaClubsORM
         public virtual ICollection<Contacto> Contacto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Galeria> Galeria { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MediaVisual> MediaVisual { get; set; }
+        public virtual MediaVisual MediaVisual { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ubicacion> Ubicacion { get; set; }
     }

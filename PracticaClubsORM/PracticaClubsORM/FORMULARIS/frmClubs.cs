@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmClubs : Form
     {
         FrmAMBclubs aMBclubs;
-        private ClubEntities clubsBD {  get; set; } = new ClubEntities();
-        public FrmClubs(ClubEntities xclub)
+        private ClubsEntities7 clubsBD {  get; set; } = new ClubsEntities7();
+        public FrmClubs(ClubsEntities7 xclub)
         {
             InitializeComponent();
             clubsBD = xclub;
@@ -27,15 +28,18 @@ namespace PracticaClubsORM.FORMULARIS
 
         private void getDadesSenseFiltre()
         {
-            var qryClyubs = from c in clubsBD.Clubs
-                            orderby c.Nombre ascending
-                            select new
-                            {
-                                nombre = c.Nombre,
-                                pais = c.Pais.Nombre,
-                                fundacion = c.Fundacion
-                            };
-            dgvClubs.DataSource = qryClyubs.ToList();
+            var qryClubs = from c in clubsBD.Contacto
+                           join u in clubsBD.Ubicacion on c.ClubID equals u.ClubID
+                           select new
+                           {
+                               Nombre = c.Clubs.Nombre,
+                               Fundacion = c.Clubs.Fundacion,
+                               Contacto = c.Telefono,
+                               ciudad = u.Ciudad,
+                               
+                           };
+
+            dgvClubs.DataSource = qryClubs.ToList();
                             
         }
 

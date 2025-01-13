@@ -13,10 +13,10 @@ namespace PracticaClubsORM
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ClubEntities : DbContext
+    public partial class ClubsEntities7 : DbContext
     {
-        public ClubEntities()
-            : base("name=ClubEntities")
+        public ClubsEntities7()
+            : base("name=ClubsEntities7")
         {
         }
     
