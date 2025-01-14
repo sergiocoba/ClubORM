@@ -22,10 +22,10 @@
     <Property Name="PaisID" Type="Int32" />
     <NavigationProperty Name="Categorias" Relationship="Self.FK__Clubs__Categoria__68487DD7" FromRole="Clubs" ToRole="Categorias" />
     <NavigationProperty Name="Pais" Relationship="Self.FK__Clubs__PaisID__693CA210" FromRole="Clubs" ToRole="Pais" />
-    <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__ClubID__6EF57B66" FromRole="Clubs" ToRole="Contacto" />
-    <NavigationProperty Name="Galeria" Relationship="Self.FK__Galeria__ClubID__74AE54BC" FromRole="Clubs" ToRole="Galeria" />
-    <NavigationProperty Name="MediaVisual" Relationship="Self.FK__MediaVisu__ClubI__71D1E811" FromRole="Clubs" ToRole="MediaVisual" />
-    <NavigationProperty Name="Ubicacion" Relationship="Self.FK__Ubicacion__ClubI__6C190EBB" FromRole="Clubs" ToRole="Ubicacion" />
+    <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__ClubID__70DDC3D8" FromRole="Clubs" ToRole="Contacto" />
+    <NavigationProperty Name="Galeria" Relationship="Self.FK__Galeria__ClubID__76969D2E" FromRole="Clubs" ToRole="Galeria" />
+    <NavigationProperty Name="MediaVisual" Relationship="Self.FK__MediaVisu__ClubI__73BA3083" FromRole="Clubs" ToRole="MediaVisual" />
+    <NavigationProperty Name="Ubicacion" Relationship="Self.FK__Ubicacion__ClubI__6D0D32F4" FromRole="Clubs" ToRole="Ubicacion" />
   </EntityType>
   <EntityType Name="Contacto">
     <Key>
@@ -35,7 +35,7 @@
     <Property Name="ClubID" Type="Int32" />
     <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Clubs" Relationship="Self.FK__Contacto__ClubID__6EF57B66" FromRole="Contacto" ToRole="Clubs" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK__Contacto__ClubID__70DDC3D8" FromRole="Contacto" ToRole="Clubs" />
   </EntityType>
   <EntityType Name="Continentes">
     <Key>
@@ -52,18 +52,17 @@
     </Key>
     <Property Name="ClubID" Type="Int32" Nullable="false" />
     <Property Name="Foto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Clubs" Relationship="Self.FK__Galeria__ClubID__74AE54BC" FromRole="Galeria" ToRole="Clubs" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK__Galeria__ClubID__76969D2E" FromRole="Galeria" ToRole="Clubs" />
   </EntityType>
   <EntityType Name="MediaVisual">
     <Key>
       <PropertyRef Name="ClubID" />
-      <PropertyRef Name="GoogleMapsURL" />
     </Key>
     <Property Name="ClubID" Type="Int32" Nullable="false" />
     <Property Name="Logo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="MiniaturaWeb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="GoogleMapsURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Clubs" Relationship="Self.FK__MediaVisu__ClubI__71D1E811" FromRole="MediaVisual" ToRole="Clubs" />
+    <Property Name="GoogleMapsURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK__MediaVisu__ClubI__73BA3083" FromRole="MediaVisual" ToRole="Clubs" />
   </EntityType>
   <EntityType Name="Pais">
     <Key>
@@ -84,7 +83,7 @@
     <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="CodigoPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Clubs" Relationship="Self.FK__Ubicacion__ClubI__6C190EBB" FromRole="Ubicacion" ToRole="Clubs" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK__Ubicacion__ClubI__6D0D32F4" FromRole="Ubicacion" ToRole="Clubs" />
   </EntityType>
   <Association Name="FK__Clubs__Categoria__68487DD7">
     <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1">
@@ -114,7 +113,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Contacto__ClubID__6EF57B66">
+  <Association Name="FK__Contacto__ClubID__70DDC3D8">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
@@ -128,7 +127,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Galeria__ClubID__74AE54BC">
+  <Association Name="FK__Galeria__ClubID__76969D2E">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -142,11 +141,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MediaVisu__ClubI__71D1E811">
+  <Association Name="FK__MediaVisu__ClubI__73BA3083">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="MediaVisual" Type="Self.MediaVisual" Multiplicity="*" />
+    <End Role="MediaVisual" Type="Self.MediaVisual" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Clubs">
         <PropertyRef Name="ClubID" />
@@ -156,7 +155,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ubicacion__ClubI__6C190EBB">
+  <Association Name="FK__Ubicacion__ClubI__6D0D32F4">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
@@ -184,7 +183,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ClubEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="ClubsEntities8" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categorias" EntityType="Self.Categorias" />
     <EntitySet Name="Clubs" EntityType="Self.Clubs" />
     <EntitySet Name="Contacto" EntityType="Self.Contacto" />
@@ -201,19 +200,19 @@
       <End Role="Pais" EntitySet="Pais" />
       <End Role="Clubs" EntitySet="Clubs" />
     </AssociationSet>
-    <AssociationSet Name="FK__Contacto__ClubID__6EF57B66" Association="Self.FK__Contacto__ClubID__6EF57B66">
+    <AssociationSet Name="FK__Contacto__ClubID__70DDC3D8" Association="Self.FK__Contacto__ClubID__70DDC3D8">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="Contacto" EntitySet="Contacto" />
     </AssociationSet>
-    <AssociationSet Name="FK__Galeria__ClubID__74AE54BC" Association="Self.FK__Galeria__ClubID__74AE54BC">
+    <AssociationSet Name="FK__Galeria__ClubID__76969D2E" Association="Self.FK__Galeria__ClubID__76969D2E">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="Galeria" EntitySet="Galeria" />
     </AssociationSet>
-    <AssociationSet Name="FK__MediaVisu__ClubI__71D1E811" Association="Self.FK__MediaVisu__ClubI__71D1E811">
+    <AssociationSet Name="FK__MediaVisu__ClubI__73BA3083" Association="Self.FK__MediaVisu__ClubI__73BA3083">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="MediaVisual" EntitySet="MediaVisual" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ubicacion__ClubI__6C190EBB" Association="Self.FK__Ubicacion__ClubI__6C190EBB">
+    <AssociationSet Name="FK__Ubicacion__ClubI__6D0D32F4" Association="Self.FK__Ubicacion__ClubI__6D0D32F4">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="Ubicacion" EntitySet="Ubicacion" />
     </AssociationSet>

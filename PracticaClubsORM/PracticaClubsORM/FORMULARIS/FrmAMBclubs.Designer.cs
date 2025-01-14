@@ -57,6 +57,7 @@
             this.btNo.TabIndex = 15;
             this.btNo.Text = "&Cancel·lar";
             this.btNo.UseVisualStyleBackColor = false;
+            this.btNo.Click += new System.EventHandler(this.btNo_Click);
             // 
             // btOK
             // 
@@ -69,6 +70,7 @@
             this.btOK.TabIndex = 14;
             this.btOK.Text = "&Acceptar";
             this.btOK.UseVisualStyleBackColor = false;
+            this.btOK.Click += new System.EventHandler(this.btOK_Click);
             // 
             // tbNom
             // 
@@ -77,7 +79,7 @@
             this.tbNom.MaxLength = 20;
             this.tbNom.Name = "tbNom";
             this.tbNom.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbNom.Size = new System.Drawing.Size(251, 22);
+            this.tbNom.Size = new System.Drawing.Size(251, 26);
             this.tbNom.TabIndex = 9;
             this.tbNom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -91,9 +93,9 @@
             this.Nom.MinimumSize = new System.Drawing.Size(133, 0);
             this.Nom.Name = "Nom";
             this.Nom.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Nom.Size = new System.Drawing.Size(133, 20);
+            this.Nom.Size = new System.Drawing.Size(133, 24);
             this.Nom.TabIndex = 8;
-            this.Nom.Text = "Nom";
+            this.Nom.Text = "Nombre";
             // 
             // lbPais
             // 
@@ -105,7 +107,7 @@
             this.lbPais.MinimumSize = new System.Drawing.Size(133, 0);
             this.lbPais.Name = "lbPais";
             this.lbPais.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lbPais.Size = new System.Drawing.Size(133, 20);
+            this.lbPais.Size = new System.Drawing.Size(133, 24);
             this.lbPais.TabIndex = 16;
             this.lbPais.Text = "Pais";
             // 
@@ -115,9 +117,8 @@
             this.cbPais.Location = new System.Drawing.Point(189, 231);
             this.cbPais.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbPais.Name = "cbPais";
-            this.cbPais.Size = new System.Drawing.Size(251, 22);
+            this.cbPais.Size = new System.Drawing.Size(251, 26);
             this.cbPais.TabIndex = 17;
-            this.cbPais.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tbTelefono
             // 
@@ -126,7 +127,7 @@
             this.tbTelefono.MaxLength = 20;
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbTelefono.Size = new System.Drawing.Size(251, 22);
+            this.tbTelefono.Size = new System.Drawing.Size(251, 26);
             this.tbTelefono.TabIndex = 19;
             this.tbTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -140,7 +141,7 @@
             this.lbTelefono.MinimumSize = new System.Drawing.Size(133, 0);
             this.lbTelefono.Name = "lbTelefono";
             this.lbTelefono.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lbTelefono.Size = new System.Drawing.Size(133, 20);
+            this.lbTelefono.Size = new System.Drawing.Size(133, 24);
             this.lbTelefono.TabIndex = 18;
             this.lbTelefono.Text = "Telefono";
             // 
@@ -151,7 +152,7 @@
             this.tbCiudad.MaxLength = 20;
             this.tbCiudad.Name = "tbCiudad";
             this.tbCiudad.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbCiudad.Size = new System.Drawing.Size(251, 22);
+            this.tbCiudad.Size = new System.Drawing.Size(251, 26);
             this.tbCiudad.TabIndex = 21;
             this.tbCiudad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -165,7 +166,7 @@
             this.label2.MinimumSize = new System.Drawing.Size(133, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.label2.Size = new System.Drawing.Size(133, 20);
+            this.label2.Size = new System.Drawing.Size(133, 24);
             this.label2.TabIndex = 20;
             this.label2.Text = "Ciudad";
             // 
@@ -176,7 +177,7 @@
             this.tbDireccion.MaxLength = 20;
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbDireccion.Size = new System.Drawing.Size(251, 22);
+            this.tbDireccion.Size = new System.Drawing.Size(251, 26);
             this.tbDireccion.TabIndex = 23;
             this.tbDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -190,7 +191,7 @@
             this.label3.MinimumSize = new System.Drawing.Size(133, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.label3.Size = new System.Drawing.Size(133, 20);
+            this.label3.Size = new System.Drawing.Size(133, 24);
             this.label3.TabIndex = 22;
             this.label3.Text = "Direccion";
             // 
@@ -216,7 +217,7 @@
             this.tbCorreo.MaxLength = 20;
             this.tbCorreo.Name = "tbCorreo";
             this.tbCorreo.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbCorreo.Size = new System.Drawing.Size(251, 22);
+            this.tbCorreo.Size = new System.Drawing.Size(251, 26);
             this.tbCorreo.TabIndex = 26;
             this.tbCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -230,13 +231,13 @@
             this.lbCorreo.MinimumSize = new System.Drawing.Size(133, 0);
             this.lbCorreo.Name = "lbCorreo";
             this.lbCorreo.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lbCorreo.Size = new System.Drawing.Size(133, 20);
+            this.lbCorreo.Size = new System.Drawing.Size(133, 24);
             this.lbCorreo.TabIndex = 25;
             this.lbCorreo.Text = "Correo";
             // 
             // FrmAMBclubs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(859, 485);

@@ -13,9 +13,10 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmClubs : Form
     {
-        FrmAMBclubs aMBclubs;
-        private ClubsEntities7 clubsBD {  get; set; } = new ClubsEntities7();
-        public FrmClubs(ClubsEntities7 xclub)
+        FrmAMBclubs aMBclubs= null;
+        //private ClubsEntities7 clubsBD {  get; set; } = new ClubsEntities7();
+        private ClubsEntities8 clubsBD { get; set; } = new ClubsEntities8();
+        public FrmClubs(ClubsEntities8 xclub)
         {
             InitializeComponent();
             clubsBD = xclub;
@@ -47,6 +48,11 @@ namespace PracticaClubsORM.FORMULARIS
         {
             aMBclubs = new FrmAMBclubs('A',clubsBD);
             aMBclubs.ShowDialog();
+            getDadesSenseFiltre();
+            if (aMBclubs.NomClub != "")
+            {
+                //seleccionarFila(fABMestudiantes.nom1);
+            }
         }
     }
 }

@@ -1,34 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\",
+  "WorkspaceRootPath": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|c:\\users\\sergio\\documents\\github\\cluborm\\practicaclubsorm\\practicaclubsorm\\formularis\\frmambclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\formularis\\frmambclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\formularis\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\formularis\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\formularis\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\formularis\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\formularis\\frmambclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|c:\\users\\edgardo miguel\\source\\repos\\proyectoclubsm6\\cluborm\\practicaclubsorm\\practicaclubsorm\\formularis\\frmambclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\formularis\\frmambclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|c:\\users\\sergio\\documents\\github\\cluborm\\practicaclubsorm\\practicaclubsorm\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\formularis\\frmambclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\formularis\\frmambclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\formularis\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\formularis\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|c:\\users\\edgardo miguel\\source\\repos\\proyectoclubsm6\\cluborm\\practicaclubsorm\\practicaclubsorm\\modelclubs.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\modelclubs.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\practicaclubsorm\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|c:\\users\\edgardo miguel\\source\\repos\\proyectoclubsm6\\cluborm\\practicaclubsorm\\practicaclubsorm\\formularis\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F7B8693F-B73E-4649-BD2A-7B0CECCBEB13}|PracticaClubsORM\\PracticaClubsORM.csproj|solutionrelative:practicaclubsorm\\formularis\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,65 +38,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Model1.edmx [Diagram1]",
-              "DocumentMoniker": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\Model1.edmx",
-              "RelativeDocumentMoniker": "PracticaClubsORM\\Model1.edmx",
-              "ToolTip": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\Model1.edmx [Diagram1]",
-              "RelativeToolTip": "PracticaClubsORM\\Model1.edmx [Diagram1]",
+              "DocumentIndex": 3,
+              "Title": "ModelClubs.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\ModelClubs.edmx",
+              "RelativeDocumentMoniker": "PracticaClubsORM\\ModelClubs.edmx",
+              "ToolTip": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\ModelClubs.edmx [Diagram1]",
+              "RelativeToolTip": "PracticaClubsORM\\ModelClubs.edmx [Diagram1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-01-13T22:07:53.073Z",
+              "WhenOpened": "2025-01-14T09:23:35.38Z",
               "EditorCaption": " [Diagram1]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmAMBclubs.cs",
-              "DocumentMoniker": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
+              "Title": "FrmAMBclubs.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
               "RelativeDocumentMoniker": "PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
-              "ToolTip": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
+              "ToolTip": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs [Dise\u00F1o]",
+              "RelativeToolTip": "PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T11:05:02.218Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmAMBclubs.cs",
+              "DocumentMoniker": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
+              "RelativeDocumentMoniker": "PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
+              "ToolTip": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
               "RelativeToolTip": "PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFIAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAcwJ4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T11:20:54.719Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmClubs.cs",
-              "DocumentMoniker": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
+              "DocumentMoniker": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
               "RelativeDocumentMoniker": "PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
-              "ToolTip": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
+              "ToolTip": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
               "RelativeToolTip": "PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAhwDAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T11:04:38.153Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "frmClubs.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
+              "DocumentMoniker": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
               "RelativeDocumentMoniker": "PracticaClubsORM\\FORMULARIS\\frmClubs.cs",
-              "ToolTip": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\frmClubs.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\frmClubs.cs [Dise\u00F1o]",
               "RelativeToolTip": "PracticaClubsORM\\FORMULARIS\\frmClubs.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T10:57:29.786Z",
@@ -104,40 +108,28 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmMain.cs",
+              "DocumentMoniker": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FrmMain.cs",
+              "RelativeDocumentMoniker": "PracticaClubsORM\\FrmMain.cs",
+              "ToolTip": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FrmMain.cs",
+              "RelativeToolTip": "PracticaClubsORM\\FrmMain.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T14:57:04.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "FrmMain.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FrmMain.cs",
+              "DocumentMoniker": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FrmMain.cs",
               "RelativeDocumentMoniker": "PracticaClubsORM\\FrmMain.cs",
-              "ToolTip": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FrmMain.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Edgardo Miguel\\source\\repos\\proyectoClubsM6\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FrmMain.cs [Dise\u00F1o]",
               "RelativeToolTip": "PracticaClubsORM\\FrmMain.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-05T14:52:10.334Z",
               "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmAMBclubs.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
-              "RelativeDocumentMoniker": "PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs",
-              "ToolTip": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs [Dise\u00F1o]",
-              "RelativeToolTip": "PracticaClubsORM\\FORMULARIS\\FrmAMBclubs.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T11:20:03.762Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FrmMain.cs",
-              "DocumentMoniker": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FrmMain.cs",
-              "RelativeDocumentMoniker": "PracticaClubsORM\\FrmMain.cs",
-              "ToolTip": "C:\\Users\\Sergio\\Documents\\GitHub\\ClubORM\\PracticaClubsORM\\PracticaClubsORM\\FrmMain.cs",
-              "RelativeToolTip": "PracticaClubsORM\\FrmMain.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T14:57:04.757Z",
-              "EditorCaption": ""
             }
           ]
         }

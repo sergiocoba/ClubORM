@@ -47,12 +47,11 @@
   <EntityType Name="MediaVisual">
     <Key>
       <PropertyRef Name="ClubID" />
-      <PropertyRef Name="GoogleMapsURL" />
     </Key>
     <Property Name="ClubID" Type="int" Nullable="false" />
     <Property Name="Logo" Type="nvarchar" MaxLength="255" />
     <Property Name="MiniaturaWeb" Type="nvarchar" MaxLength="255" />
-    <Property Name="GoogleMapsURL" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="GoogleMapsURL" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Pais">
     <Key>
@@ -100,7 +99,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Contacto__ClubID__6EF57B66">
+  <Association Name="FK__Contacto__ClubID__70DDC3D8">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
@@ -114,7 +113,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Galeria__ClubID__74AE54BC">
+  <Association Name="FK__Galeria__ClubID__76969D2E">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -128,11 +127,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MediaVisu__ClubI__71D1E811">
+  <Association Name="FK__MediaVisu__ClubI__73BA3083">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="MediaVisual" Type="Self.MediaVisual" Multiplicity="*" />
+    <End Role="MediaVisual" Type="Self.MediaVisual" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Clubs">
         <PropertyRef Name="ClubID" />
@@ -156,7 +155,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ubicacion__ClubI__6C190EBB">
+  <Association Name="FK__Ubicacion__ClubI__6D0D32F4">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
@@ -187,15 +186,15 @@
       <End Role="Pais" EntitySet="Pais" />
       <End Role="Clubs" EntitySet="Clubs" />
     </AssociationSet>
-    <AssociationSet Name="FK__Contacto__ClubID__6EF57B66" Association="Self.FK__Contacto__ClubID__6EF57B66">
+    <AssociationSet Name="FK__Contacto__ClubID__70DDC3D8" Association="Self.FK__Contacto__ClubID__70DDC3D8">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="Contacto" EntitySet="Contacto" />
     </AssociationSet>
-    <AssociationSet Name="FK__Galeria__ClubID__74AE54BC" Association="Self.FK__Galeria__ClubID__74AE54BC">
+    <AssociationSet Name="FK__Galeria__ClubID__76969D2E" Association="Self.FK__Galeria__ClubID__76969D2E">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="Galeria" EntitySet="Galeria" />
     </AssociationSet>
-    <AssociationSet Name="FK__MediaVisu__ClubI__71D1E811" Association="Self.FK__MediaVisu__ClubI__71D1E811">
+    <AssociationSet Name="FK__MediaVisu__ClubI__73BA3083" Association="Self.FK__MediaVisu__ClubI__73BA3083">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="MediaVisual" EntitySet="MediaVisual" />
     </AssociationSet>
@@ -203,7 +202,7 @@
       <End Role="Continentes" EntitySet="Continentes" />
       <End Role="Pais" EntitySet="Pais" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ubicacion__ClubI__6C190EBB" Association="Self.FK__Ubicacion__ClubI__6C190EBB">
+    <AssociationSet Name="FK__Ubicacion__ClubI__6D0D32F4" Association="Self.FK__Ubicacion__ClubI__6D0D32F4">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="Ubicacion" EntitySet="Ubicacion" />
     </AssociationSet>

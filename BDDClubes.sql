@@ -2,8 +2,7 @@ CREATE DATABASE Clubs;
 GO
 USE Clubs;
 GO
-use bdCicles
-DROP DATABASE Clubs
+
 SELECT * FROM Contacto
 SELECT * FROM Ubicacion
 CREATE TABLE Categorias (

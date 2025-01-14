@@ -15,7 +15,8 @@ namespace PracticaClubsORM
     public partial class FrmMain : Form
     {
         FrmClubs FrmClubs;
-        private ClubsEntities7 clubsBd { get; set; } = new ClubsEntities7();
+        //private ClubsEntities7 clubsBd { get; set; } = new ClubsEntities7();
+        private ClubsEntities8 clubsBd { get; set; } = new ClubsEntities8();
         public FrmMain()
         {
             InitializeComponent();
