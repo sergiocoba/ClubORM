@@ -17,7 +17,7 @@ namespace PracticaClubsORM
         FrmClubs FrmClubs;
         //private ClubsEntities7 clubsBd { get; set; } = new ClubsEntities7();
         FrmCategoria fmcategoria;
-        private ClubsEntities9 clubsBd { get; set; } = new ClubsEntities9();
+        private ClubsEntities10 clubsBd { get; set; } = new ClubsEntities10();
         public FrmMain()
         {
             InitializeComponent();

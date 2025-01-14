@@ -2,10 +2,7 @@ CREATE DATABASE Clubs;
 GO
 USE Clubs;
 GO
-USE bdCicles
-DROP DATABASE Clubs
-SELECT * FROM Contacto
-SELECT * FROM Ubicacion
+
 CREATE TABLE Categorias (
     CategoriaID INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(50) NOT NULL UNIQUE
@@ -204,4 +201,4 @@ SELECT * FROM ClubCategorias
 SELECT * FROM Contacto
 SELECT * FROM MediaVisual
 SELECT * FROM Clubs
-select * from Categorias
+select * from Continentes

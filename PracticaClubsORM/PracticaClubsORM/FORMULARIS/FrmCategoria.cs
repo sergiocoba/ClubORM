@@ -13,12 +13,12 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmCategoria : Form
     {
-        private ClubsEntities9 clubbd { get; set; } = new ClubsEntities9();
+        private ClubsEntities10 clubbd { get; set; } = new ClubsEntities10();
         bool bfirst = true;
 
         public int id { get; set; }
         public String nom { get; set; } = "";
-        public FrmCategoria(ClubsEntities9 bd)
+        public FrmCategoria(ClubsEntities10 bd)
         {
             InitializeComponent();
             clubbd = bd;
@@ -91,10 +91,10 @@ namespace PracticaClubsORM.FORMULARIS
         private void pbAdd_Click(object sender, EventArgs e)
         {
             ClubCategorias c = new ClubCategorias();
-            string nomcurs = dgvDisp.SelectedRows[0].Cells["nombre"].Value.ToString().Trim();
+            string nomclub = dgvDisp.SelectedRows[0].Cells["nombre"].Value.ToString().Trim();
 
             var categoriaId = (from g in clubbd.Categorias
-                           where g.Nombre == nomcurs
+                           where g.Nombre == nomclub
                            select g.CategoriaID).FirstOrDefault();
 
             c.ClubID = (Int32)cbEstudiants.SelectedValue;
@@ -104,6 +104,35 @@ namespace PracticaClubsORM.FORMULARIS
             ferCanvis();
 
             getDadesClubsInscrit();
+        }
+        
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            string nomclub = dgvInscrit.SelectedRows[0].Cells["nombre"].Value.ToString().Trim();
+
+            var categoriaId = (from g in clubbd.Categorias
+                               where g.Nombre == nomclub
+                               select g.CategoriaID).FirstOrDefault();
+
+            int clubId = (Int32)cbEstudiants.SelectedValue;
+
+            var clubCategoria = (from cc in clubbd.ClubCategorias
+                                 where cc.ClubID == clubId && cc.CategoriaID == categoriaId
+                                 select cc).FirstOrDefault();
+
+            if (clubCategoria != null)
+            {
+
+                clubbd.ClubCategorias.Remove(clubCategoria);
+
+                ferCanvis();
+
+                getDadesClubsInscrit();
+            }
+            else
+            {
+                MessageBox.Show("No se encontró la relación Club-Categoría para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ferCanvis()
@@ -128,5 +157,7 @@ namespace PracticaClubsORM.FORMULARIS
 
             }
         }
+
+        
     }
 }
