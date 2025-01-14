@@ -12,16 +12,14 @@ namespace PracticaClubsORM
     using System;
     using System.Collections.Generic;
     
-    public partial class Ubicacion
+    public partial class Reseña
     {
-        public int UbicacionID { get; set; }
+        public int ReseñaID { get; set; }
         public Nullable<int> ClubID { get; set; }
-        public string Ciudad { get; set; }
-        public string Direccion { get; set; }
-        public string CodigoPostal { get; set; }
-        public Nullable<int> PaisID { get; set; }
+        public string Usuario { get; set; }
+        public string Descripcion { get; set; }
+        public Nullable<byte> Valoracion { get; set; }
     
         public virtual Clubs Clubs { get; set; }
-        public virtual Pais Pais { get; set; }
     }
 }

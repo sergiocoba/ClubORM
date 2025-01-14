@@ -157,3 +157,4 @@ C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\D
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\Practica.4C917C35.Up2Date
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.exe
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.pdb
+C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmCategoria.resources

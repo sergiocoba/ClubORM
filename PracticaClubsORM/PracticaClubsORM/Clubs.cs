@@ -17,27 +17,25 @@ namespace PracticaClubsORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Clubs()
         {
+            this.ClubCategorias = new HashSet<ClubCategorias>();
             this.Contacto = new HashSet<Contacto>();
-            this.Galeria = new HashSet<Galeria>();
+            this.Reseña = new HashSet<Reseña>();
             this.Ubicacion = new HashSet<Ubicacion>();
         }
     
         public int ClubID { get; set; }
         public string Nombre { get; set; }
-        public string Reseña { get; set; }
         public Nullable<int> Fundacion { get; set; }
-        public Nullable<byte> Valoracion { get; set; }
         public string Horario { get; set; }
-        public Nullable<int> CategoriaID { get; set; }
-        public Nullable<int> PaisID { get; set; }
     
-        public virtual Categorias Categorias { get; set; }
-        public virtual Pais Pais { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClubCategorias> ClubCategorias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contacto> Contacto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Galeria> Galeria { get; set; }
+        public virtual Galeria Galeria { get; set; }
         public virtual MediaVisual MediaVisual { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reseña> Reseña { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ubicacion> Ubicacion { get; set; }
     }

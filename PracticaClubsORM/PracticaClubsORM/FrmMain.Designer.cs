@@ -38,6 +38,7 @@
             this.consultesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expedientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +81,8 @@
             // gestioToolStripMenuItem
             // 
             this.gestioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clubsToolStripMenuItem});
+            this.clubsToolStripMenuItem,
+            this.categoriesToolStripMenuItem});
             this.gestioToolStripMenuItem.Enabled = false;
             this.gestioToolStripMenuItem.Name = "gestioToolStripMenuItem";
             this.gestioToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
@@ -115,6 +117,13 @@
             this.cursosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.cursosToolStripMenuItem.Text = "Cursos";
             // 
+            // categoriesToolStripMenuItem
+            // 
+            this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriesToolStripMenuItem.Text = "Categories";
+            this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,6 +157,7 @@
         private System.Windows.Forms.ToolStripMenuItem expedientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clubsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
     }
 }
 

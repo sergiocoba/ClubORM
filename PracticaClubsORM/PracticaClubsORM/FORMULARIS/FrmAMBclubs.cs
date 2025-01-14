@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,16 +14,15 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmAMBclubs : Form
     {
-        //varibles de conexion 
         //private ClubsEntities7 clubbd { get; set; } = new ClubsEntities7();
-        private ClubsEntities8 clubbd { get; set; } = new ClubsEntities8();
+        private ClubsEntities9 clubbd { get; set; } = new ClubsEntities9();
 
         //variables
         Boolean bFirst = true;
         Char op { get; set; } = '\0';
         string base64Image;
 
-        //variables de modificacion 
+        public string IdClub { get; set; } = "";
         public String NomClub { get; set; } = "";
         public String telefono { get; set; } = "";
         public String correo { get; set; } = "";
@@ -31,7 +31,7 @@ namespace PracticaClubsORM.FORMULARIS
         public String pais { get; set; } = "";
         public int idPais { get; set; }
         
-        public FrmAMBclubs(char opcio, ClubsEntities8 bd)
+        public FrmAMBclubs(char opcio, ClubsEntities9 bd)
         {
             InitializeComponent();
             clubbd = bd;
@@ -69,8 +69,8 @@ namespace PracticaClubsORM.FORMULARIS
         
         private void omplirComboPaises()
         {
-            var qryPaises = from e in clubbd.Clubs
-
+            var qryPaises = from e in clubbd.Ubicacion
+                            orderby e.PaisID
                             select new
                             {
                                 id = e.PaisID,
@@ -98,6 +98,8 @@ namespace PracticaClubsORM.FORMULARIS
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    pblogo.Image = Image.FromFile(openFileDialog.FileName);
+
                     base64Image = ConvertImageToBase64(openFileDialog.FileName);
                 }
             }
@@ -145,26 +147,86 @@ namespace PracticaClubsORM.FORMULARIS
             }
             return xb;
         }
-                      
+
         private bool addClub()
         {
             Boolean xb = false;
             Clubs e = new Clubs();
             Contacto c = new Contacto();
+            Ubicacion u = new Ubicacion();
+            MediaVisual m = new MediaVisual();
+
             if (vDades())
             {
                 e.Nombre = tbNom.Text.Trim();
+                e.Fundacion = int.Parse(tbFundacion.Text.Trim());
+
+                clubbd.Clubs.Add(e);
+                if (!ferCanvis()) return xb;
+
+                
+                c.ClubID = e.ClubID;
                 c.Telefono = tbTelefono.Text.Trim();
                 c.Email = tbCorreo.Text.Trim();
-                
+
+                u.ClubID = e.ClubID;
+                u.Direccion = tbDireccion.Text.Trim();
+                u.Ciudad = tbCiudad.Text.Trim();
+                u.CodigoPostal = tbCodigoPostal.Text.Trim();
+                u.PaisID = (int)cbPais.SelectedValue;
+
+                m.ClubID = e.ClubID;
+                m.Logo = base64Image;
+
+                clubbd.Contacto.Add(c);
+                clubbd.Ubicacion.Add(u);
+                clubbd.MediaVisual.Add(m);
+
+
+                if (ferCanvis())
+                {
+                    IdClub = e.ClubID.ToString();
+                    xb = true;
+                }
+                else
+                {
+                    IdClub = "";
+                }
+            }
+
+            return xb;
+        }
+
+        private Boolean ferCanvis()
+        {
+            Boolean xb = false;
+            try
+            {
+                clubbd.SaveChanges();
+                xb = true;
+            }
+            catch (Exception excp)
+            {
+                string errorMessage = excp.InnerException != null
+                    ? excp.InnerException.ToString()
+                    : excp.Message;
+
+                MessageBox.Show(errorMessage, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+         
+                foreach (var accio in clubbd.ChangeTracker.Entries())
+                {
+                    accio.State = EntityState.Detached;
+                }
             }
             return xb;
         }
+
 
         private bool modClub()
         {
             throw new NotImplementedException();
         }
 
+  
     }
 }

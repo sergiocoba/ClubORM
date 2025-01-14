@@ -16,7 +16,8 @@ namespace PracticaClubsORM
     {
         FrmClubs FrmClubs;
         //private ClubsEntities7 clubsBd { get; set; } = new ClubsEntities7();
-        private ClubsEntities8 clubsBd { get; set; } = new ClubsEntities8();
+        FrmCategoria fmcategoria;
+        private ClubsEntities9 clubsBd { get; set; } = new ClubsEntities9();
         public FrmMain()
         {
             InitializeComponent();
@@ -102,6 +103,20 @@ namespace PracticaClubsORM
             xb = (x < this.MdiChildren.Length);
 
             return xb;
+        }
+
+        private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String xnom = "Categories";
+
+            if (!(ja_esta_obert(xnom)))
+            {
+                fmcategoria = new FrmCategoria(clubsBd);
+                fmcategoria.Name = xnom;
+                fmcategoria.MdiParent = this;
+                fmcategoria.Show();
+            }
+            fmcategoria.Activate();
         }
     }
 }

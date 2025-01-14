@@ -17,13 +17,13 @@ namespace PracticaClubsORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categorias()
         {
-            this.Clubs = new HashSet<Clubs>();
+            this.ClubCategorias = new HashSet<ClubCategorias>();
         }
     
         public int CategoriaID { get; set; }
         public string Nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Clubs> Clubs { get; set; }
+        public virtual ICollection<ClubCategorias> ClubCategorias { get; set; }
     }
 }

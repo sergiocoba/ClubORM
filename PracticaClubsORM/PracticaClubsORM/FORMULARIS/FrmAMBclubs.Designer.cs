@@ -44,6 +44,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tbCorreo = new System.Windows.Forms.TextBox();
             this.lbCorreo = new System.Windows.Forms.Label();
+            this.pblogo = new System.Windows.Forms.PictureBox();
+            this.tbFundacion = new System.Windows.Forms.TextBox();
+            this.lbFundacion = new System.Windows.Forms.Label();
+            this.tbCodigoPostal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btNo
@@ -79,7 +85,7 @@
             this.tbNom.MaxLength = 20;
             this.tbNom.Name = "tbNom";
             this.tbNom.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbNom.Size = new System.Drawing.Size(251, 26);
+            this.tbNom.Size = new System.Drawing.Size(251, 22);
             this.tbNom.TabIndex = 9;
             this.tbNom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -93,7 +99,7 @@
             this.Nom.MinimumSize = new System.Drawing.Size(133, 0);
             this.Nom.Name = "Nom";
             this.Nom.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Nom.Size = new System.Drawing.Size(133, 24);
+            this.Nom.Size = new System.Drawing.Size(133, 20);
             this.Nom.TabIndex = 8;
             this.Nom.Text = "Nombre";
             // 
@@ -102,22 +108,22 @@
             this.lbPais.AutoSize = true;
             this.lbPais.BackColor = System.Drawing.Color.SaddleBrown;
             this.lbPais.ForeColor = System.Drawing.Color.White;
-            this.lbPais.Location = new System.Drawing.Point(48, 234);
+            this.lbPais.Location = new System.Drawing.Point(48, 313);
             this.lbPais.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPais.MinimumSize = new System.Drawing.Size(133, 0);
             this.lbPais.Name = "lbPais";
             this.lbPais.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lbPais.Size = new System.Drawing.Size(133, 24);
+            this.lbPais.Size = new System.Drawing.Size(133, 20);
             this.lbPais.TabIndex = 16;
             this.lbPais.Text = "Pais";
             // 
             // cbPais
             // 
             this.cbPais.FormattingEnabled = true;
-            this.cbPais.Location = new System.Drawing.Point(189, 231);
+            this.cbPais.Location = new System.Drawing.Point(189, 310);
             this.cbPais.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbPais.Name = "cbPais";
-            this.cbPais.Size = new System.Drawing.Size(251, 26);
+            this.cbPais.Size = new System.Drawing.Size(251, 22);
             this.cbPais.TabIndex = 17;
             // 
             // tbTelefono
@@ -127,7 +133,7 @@
             this.tbTelefono.MaxLength = 20;
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbTelefono.Size = new System.Drawing.Size(251, 26);
+            this.tbTelefono.Size = new System.Drawing.Size(251, 22);
             this.tbTelefono.TabIndex = 19;
             this.tbTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -141,18 +147,18 @@
             this.lbTelefono.MinimumSize = new System.Drawing.Size(133, 0);
             this.lbTelefono.Name = "lbTelefono";
             this.lbTelefono.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lbTelefono.Size = new System.Drawing.Size(133, 24);
+            this.lbTelefono.Size = new System.Drawing.Size(133, 20);
             this.lbTelefono.TabIndex = 18;
             this.lbTelefono.Text = "Telefono";
             // 
             // tbCiudad
             // 
-            this.tbCiudad.Location = new System.Drawing.Point(189, 168);
+            this.tbCiudad.Location = new System.Drawing.Point(189, 208);
             this.tbCiudad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbCiudad.MaxLength = 20;
             this.tbCiudad.Name = "tbCiudad";
             this.tbCiudad.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbCiudad.Size = new System.Drawing.Size(251, 26);
+            this.tbCiudad.Size = new System.Drawing.Size(251, 22);
             this.tbCiudad.TabIndex = 21;
             this.tbCiudad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -161,23 +167,23 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.SaddleBrown;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(48, 171);
+            this.label2.Location = new System.Drawing.Point(48, 210);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.MinimumSize = new System.Drawing.Size(133, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.label2.Size = new System.Drawing.Size(133, 24);
+            this.label2.Size = new System.Drawing.Size(133, 20);
             this.label2.TabIndex = 20;
             this.label2.Text = "Ciudad";
             // 
             // tbDireccion
             // 
-            this.tbDireccion.Location = new System.Drawing.Point(189, 201);
+            this.tbDireccion.Location = new System.Drawing.Point(189, 238);
             this.tbDireccion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbDireccion.MaxLength = 20;
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbDireccion.Size = new System.Drawing.Size(251, 26);
+            this.tbDireccion.Size = new System.Drawing.Size(251, 22);
             this.tbDireccion.TabIndex = 23;
             this.tbDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -186,12 +192,12 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.SaddleBrown;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(48, 201);
+            this.label3.Location = new System.Drawing.Point(48, 240);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.MinimumSize = new System.Drawing.Size(133, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.label3.Size = new System.Drawing.Size(133, 24);
+            this.label3.Size = new System.Drawing.Size(133, 20);
             this.label3.TabIndex = 22;
             this.label3.Text = "Direccion";
             // 
@@ -201,7 +207,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(670, 110);
+            this.button1.Location = new System.Drawing.Point(633, 64);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 48);
@@ -212,12 +218,12 @@
             // 
             // tbCorreo
             // 
-            this.tbCorreo.Location = new System.Drawing.Point(189, 138);
+            this.tbCorreo.Location = new System.Drawing.Point(189, 139);
             this.tbCorreo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbCorreo.MaxLength = 20;
             this.tbCorreo.Name = "tbCorreo";
             this.tbCorreo.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbCorreo.Size = new System.Drawing.Size(251, 26);
+            this.tbCorreo.Size = new System.Drawing.Size(251, 22);
             this.tbCorreo.TabIndex = 26;
             this.tbCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -226,21 +232,85 @@
             this.lbCorreo.AutoSize = true;
             this.lbCorreo.BackColor = System.Drawing.Color.SaddleBrown;
             this.lbCorreo.ForeColor = System.Drawing.Color.White;
-            this.lbCorreo.Location = new System.Drawing.Point(48, 138);
+            this.lbCorreo.Location = new System.Drawing.Point(48, 139);
             this.lbCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCorreo.MinimumSize = new System.Drawing.Size(133, 0);
             this.lbCorreo.Name = "lbCorreo";
             this.lbCorreo.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lbCorreo.Size = new System.Drawing.Size(133, 24);
+            this.lbCorreo.Size = new System.Drawing.Size(133, 20);
             this.lbCorreo.TabIndex = 25;
             this.lbCorreo.Text = "Correo";
             // 
+            // pblogo
+            // 
+            this.pblogo.Location = new System.Drawing.Point(610, 118);
+            this.pblogo.Name = "pblogo";
+            this.pblogo.Size = new System.Drawing.Size(200, 177);
+            this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pblogo.TabIndex = 27;
+            this.pblogo.TabStop = false;
+            // 
+            // tbFundacion
+            // 
+            this.tbFundacion.Location = new System.Drawing.Point(189, 174);
+            this.tbFundacion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbFundacion.MaxLength = 20;
+            this.tbFundacion.Name = "tbFundacion";
+            this.tbFundacion.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.tbFundacion.Size = new System.Drawing.Size(251, 22);
+            this.tbFundacion.TabIndex = 29;
+            this.tbFundacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lbFundacion
+            // 
+            this.lbFundacion.AutoSize = true;
+            this.lbFundacion.BackColor = System.Drawing.Color.SaddleBrown;
+            this.lbFundacion.ForeColor = System.Drawing.Color.White;
+            this.lbFundacion.Location = new System.Drawing.Point(48, 174);
+            this.lbFundacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbFundacion.MinimumSize = new System.Drawing.Size(133, 0);
+            this.lbFundacion.Name = "lbFundacion";
+            this.lbFundacion.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.lbFundacion.Size = new System.Drawing.Size(133, 20);
+            this.lbFundacion.TabIndex = 28;
+            this.lbFundacion.Text = "Fundacion";
+            // 
+            // tbCodigoPostal
+            // 
+            this.tbCodigoPostal.Location = new System.Drawing.Point(189, 273);
+            this.tbCodigoPostal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbCodigoPostal.MaxLength = 20;
+            this.tbCodigoPostal.Name = "tbCodigoPostal";
+            this.tbCodigoPostal.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.tbCodigoPostal.Size = new System.Drawing.Size(251, 22);
+            this.tbCodigoPostal.TabIndex = 31;
+            this.tbCodigoPostal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.SaddleBrown;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(48, 275);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.MinimumSize = new System.Drawing.Size(133, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.label1.Size = new System.Drawing.Size(133, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Codigo Postal";
+            // 
             // FrmAMBclubs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(859, 485);
+            this.Controls.Add(this.tbCodigoPostal);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbFundacion);
+            this.Controls.Add(this.lbFundacion);
+            this.Controls.Add(this.pblogo);
             this.Controls.Add(this.tbCorreo);
             this.Controls.Add(this.lbCorreo);
             this.Controls.Add(this.button1);
@@ -261,6 +331,7 @@
             this.Name = "FrmAMBclubs";
             this.Text = "FrmAMBclubs";
             this.Load += new System.EventHandler(this.FrmAMBclubs_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +355,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbCorreo;
         private System.Windows.Forms.Label lbCorreo;
+        private System.Windows.Forms.PictureBox pblogo;
+        private System.Windows.Forms.TextBox tbFundacion;
+        private System.Windows.Forms.Label lbFundacion;
+        private System.Windows.Forms.TextBox tbCodigoPostal;
+        private System.Windows.Forms.Label label1;
     }
 }

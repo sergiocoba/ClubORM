@@ -17,15 +17,15 @@ namespace PracticaClubsORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pais()
         {
-            this.Clubs = new HashSet<Clubs>();
+            this.Ubicacion = new HashSet<Ubicacion>();
         }
     
         public int PaisID { get; set; }
         public string Nombre { get; set; }
         public int ContinenteID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Clubs> Clubs { get; set; }
         public virtual Continentes Continentes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ubicacion> Ubicacion { get; set; }
     }
 }
