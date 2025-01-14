@@ -24,9 +24,7 @@ CREATE TABLE Pais (
 CREATE TABLE Clubs (
 ClubID INT IDENTITY(1,1) PRIMARY KEY,
 Nombre NVARCHAR(100) NOT NULL,
-Reseña NVARCHAR(MAX),
 Fundacion INT,
-Valoracion TINYINT CHECK (Valoracion BETWEEN 1 AND 5),
 Horario NVARCHAR(500),
 CategoriaID INT FOREIGN KEY REFERENCES Categorias(CategoriaID) ON DELETE CASCADE,
 PaisID INT FOREIGN KEY REFERENCES Pais(PaisID) ON DELETE CASCADE
@@ -43,7 +41,7 @@ CREATE TABLE Ubicacion (
 CREATE TABLE Contacto (
     ContactoID INT IDENTITY(1,1) PRIMARY KEY,
     ClubID INT UNIQUE FOREIGN KEY REFERENCES Clubs(ClubID) ON DELETE CASCADE,
-    Telefono NVARCHAR(15),
+    Telefono INT,
     Email NVARCHAR(100)
 );
 
@@ -52,6 +50,15 @@ CREATE TABLE MediaVisual (
     Logo NVARCHAR(255),
     MiniaturaWeb NVARCHAR(255),
     GoogleMapsURL NVARCHAR(255)
+);
+
+CREATE TABLE Reseña
+(
+	ReseñaID INT IDENTITY(1,1) PRIMARY KEY,
+	ClubID INT FOREIGN KEY REFERENCES Clubs(ClubID) ON DELETE CASCADE,
+	Usuario NVARCHAR(255),
+	Descripcion NVARCHAR(255),
+	Valoracion TINYINT CHECK (Valoracion BETWEEN 1 AND 5)
 );
 
 CREATE TABLE Galeria (
@@ -88,6 +95,7 @@ VALUES
 ('Fútbol'),
 ('Rugby'),
 ('Baloncesto');
+
 INSERT INTO MediaVisual (ClubID, GoogleMapsURL)
 VALUES
 (1,'https://www.google.com/maps/@40.453054,-3.688344,18z'),
@@ -106,21 +114,38 @@ VALUES
 
 
 
-INSERT INTO Clubs (Nombre, Reseña, Fundacion, Valoracion, Horario, CategoriaID, PaisID)
+INSERT INTO Clubs (Nombre, Fundacion, Horario, CategoriaID, PaisID)
 VALUES 
-('Club Futbol Madrid', 'Club histórico con múltiples títulos.', 1902, 5, 'Lunes a Viernes: 10:00 - 20:00', 1, 1),
-('Club de Rugby Toulouse', 'Equipo de rugby destacado en Europa.', 1907, 4, 'Martes a Sábado: 9:00 - 18:00', 2, 2),
-('Angeles Lakers', 'Equipo de la NBA con gran tradición.', 1947, 5, 'Todos los días: 8:00 - 22:00', 3, 3),
-('Rugby Stormers', 'Equipo profesional en la liga internacional.', 1998, 4, 'Martes a Viernes: 9:00 - 17:00', 2, 4),
-('Basket Toronto Raptors', 'Campeones de la NBA en 2019.', 1995, 5, 'Todos los días: 10:00 - 21:00', 3, 5),
-('Futbol Boca Juniors', 'Uno de los clubes más emblemáticos de Argentina.', 1905, 5, 'Miércoles a Domingo: 11:00 - 19:00', 1, 6),
-('Club Rugby All Blacks', 'Conocidos por su Haka y gran desempeño mundial.', 1903, 5, 'Lunes a Viernes: 8:00 - 18:00', 2, 7),
-('Club Atlético River Plate', 'Uno de los clubes más grandes de Argentina.', 1901, 5, 'Lunes a Viernes: 9:00 - 18:00', 1, 6),
-('Club Baloncesto Real Madrid', 'Equipo de baloncesto del Real Madrid.', 1931, 5, 'Todos los días: 10:00 - 22:00', 3, 1),
-('Club Rugby Leinster', 'Equipo de rugby profesional en Dublín.', 1875, 5, 'Lunes a Viernes: 8:00 - 16:00', 2, 8),
-('Club Deportivo Guadalajara', 'Mejor conocido como Chivas.', 1906, 4, 'Todos los días: 9:00 - 21:00', 1, 9),
-('Los Angeles Clippers', 'Equipo de la NBA con base en Los Ángeles.', 1970, 4, 'Miércoles a Domingo: 11:00 - 19:00', 3, 3),
-('Rugby Reds Queensland', 'Equipo de rugby profesional australiano.', 1882, 4, 'Martes a Viernes: 8:00 - 17:00', 2, 10);
+('Club Futbol Madrid',  1902,  'Lunes a Viernes: 10:00 - 20:00', 1, 1),
+('Club de Rugby Toulouse', 1907,  'Martes a Sábado: 9:00 - 18:00', 2, 2),
+('Angeles Lakers', 1947,  'Todos los días: 8:00 - 22:00', 3, 3),
+('Rugby Stormers', 1998, 'Martes a Viernes: 9:00 - 17:00', 2, 4),
+('Basket Toronto Raptors', 1995,  'Todos los días: 10:00 - 21:00', 3, 5),
+('Futbol Boca Juniors',  1905,  'Miércoles a Domingo: 11:00 - 19:00', 1, 6),
+('Club Rugby All Blacks', 1903,  'Lunes a Viernes: 8:00 - 18:00', 2, 7),
+('Club Atlético River Plate', 1901,  'Lunes a Viernes: 9:00 - 18:00', 1, 6),
+('Club Baloncesto Real Madrid',  1931,  'Todos los días: 10:00 - 22:00', 3, 1),
+('Club Rugby Leinster', 1875,  'Lunes a Viernes: 8:00 - 16:00', 2, 8),
+('Club Deportivo Guadalajara', 1906,  'Todos los días: 9:00 - 21:00', 1, 9),
+('Los Angeles Clippers',1970,  'Miércoles a Domingo: 11:00 - 19:00', 3, 3),
+('Rugby Reds Queensland', 1882, 'Martes a Viernes: 8:00 - 17:00', 2, 10);
+
+INSERT INTO Reseña (ClubID, Usuario, Descripcion, Valoracion)
+VALUES
+(1, 'Carlos Pérez', 'Un club con mucha historia y excelente ambiente.', 5), 
+(1, 'Laura Gómez', 'Necesita mejorar sus instalaciones.', 3), 
+(2, 'Andrés Martín', 'Un gran equipo de rugby que brinda espectáculo.', 4), 
+(3, 'Sofía Hernández', 'La energía en los partidos es insuperable.', 5), 
+(4, 'Mateo López', 'Gran nivel de profesionalismo en el campo.', 4), 
+(5, 'Mariana Torres', 'Los fanáticos hacen de este equipo algo especial.', 5), 
+(6, 'Javier Ruiz', 'Un equipo emblemático con gran historia.', 5), 
+(7, 'Isabela Fernández', 'Los All Blacks nunca decepcionan.', 5), 
+(8, 'Lucas Ramírez', 'Una rivalidad icónica con Boca Juniors.', 5), 
+(9, 'Elena Castillo', 'Un equipo que marca la diferencia en baloncesto.', 5),
+(10, 'Diego Sánchez', 'Un equipo de rugby con una gran base de apoyo.', 4), 
+(11, 'Camila Romero', 'El equipo más querido de México.', 4),
+(12, 'Valeria Ortiz', 'Siempre emocionantes juegos en la NBA.', 4),
+(13, 'Álvaro Vega', 'Un equipo sólido con gran espíritu.', 4); 
 
 INSERT INTO Ubicacion (ClubID, Ciudad, Direccion, CodigoPostal)
 VALUES
