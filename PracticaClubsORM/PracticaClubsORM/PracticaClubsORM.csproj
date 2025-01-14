@@ -230,6 +230,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="ModelClubs.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelClubs.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -237,10 +241,6 @@
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
-    <EntityDeploy Include="ModelClubs.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelClubs.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="ModelClubs.edmx.diagram">
       <DependentUpon>ModelClubs.edmx</DependentUpon>
     </None>

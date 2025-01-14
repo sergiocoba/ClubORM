@@ -45,16 +45,16 @@
       <PropertyRef Name="ClubID" />
     </Key>
     <Property Name="ClubID" Type="int" Nullable="false" />
-    <Property Name="Foto" Type="text" />
+    <Property Name="Foto" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="MediaVisual">
     <Key>
       <PropertyRef Name="ClubID" />
     </Key>
     <Property Name="ClubID" Type="int" Nullable="false" />
-    <Property Name="Logo" Type="text" />
-    <Property Name="MiniaturaWeb" Type="text" />
-    <Property Name="GoogleMapsURL" Type="text" />
+    <Property Name="Logo" Type="varchar(max)" />
+    <Property Name="MiniaturaWeb" Type="varchar(max)" />
+    <Property Name="GoogleMapsURL" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Pais">
     <Key>

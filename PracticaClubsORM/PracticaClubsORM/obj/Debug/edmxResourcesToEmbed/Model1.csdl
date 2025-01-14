@@ -229,7 +229,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ClubsEntities9" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="ClubsEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categorias" EntityType="Self.Categorias" />
     <EntitySet Name="ClubCategorias" EntityType="Self.ClubCategorias" />
     <EntitySet Name="Clubs" EntityType="Self.Clubs" />

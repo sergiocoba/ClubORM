@@ -52,9 +52,9 @@ CREATE TABLE Contacto (
 
 CREATE TABLE MediaVisual (
     ClubID INT PRIMARY KEY FOREIGN KEY REFERENCES Clubs(ClubID) ON DELETE CASCADE,
-    Logo TEXT,
-    MiniaturaWeb TEXT,
-    GoogleMapsURL TEXT
+    Logo VARCHAR(MAX),
+    MiniaturaWeb VARCHAR(MAX),
+    GoogleMapsURL VARCHAR(MAX)
 );
 
 CREATE TABLE Reseña (
@@ -67,12 +67,13 @@ CREATE TABLE Reseña (
 
 CREATE TABLE Galeria (
     ClubID INT NOT NULL,
-    Foto TEXT,
+    Foto VARCHAR(MAX),
     PRIMARY KEY (ClubID),
     FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID) ON DELETE CASCADE
 );
 
-SELECT * FROM Contacto
+SELECT * FROM MediaVisual
+SELECT * FROM Ubicacion
 INSERT INTO Continentes (Nombre)
 VALUES 
 ('Europa'),
