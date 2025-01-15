@@ -159,3 +159,5 @@ C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\D
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.pdb
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmCategoria.resources
 C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmCategoria.resources
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmPaises.resources
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmAMBPaises.resources

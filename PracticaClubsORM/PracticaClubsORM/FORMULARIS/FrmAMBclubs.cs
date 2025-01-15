@@ -15,7 +15,7 @@ namespace PracticaClubsORM.FORMULARIS
     public partial class FrmAMBclubs : Form
     {
         //private ClubsEntities7 clubbd { get; set; } = new ClubsEntities7();
-        private ClubsEntities clubbd { get; set; } = new ClubsEntities();
+        private ClubsEntities10 clubbd { get; set; } = new ClubsEntities10();
 
         //variables
         Boolean bFirst = true;
@@ -31,7 +31,7 @@ namespace PracticaClubsORM.FORMULARIS
         public String pais { get; set; } = "";
         public int idPais { get; set; }
         
-        public FrmAMBclubs(char opcio, ClubsEntities bd)
+        public FrmAMBclubs(char opcio, ClubsEntities10 bd)
         {
             InitializeComponent();
             clubbd = bd;
@@ -69,12 +69,12 @@ namespace PracticaClubsORM.FORMULARIS
         
         private void omplirComboPaises()
         {
-            var qryPaises = from e in clubbd.Ubicacion
+            var qryPaises = from e in clubbd.Pais
                             orderby e.PaisID
                             select new
                             {
                                 id = e.PaisID,
-                                paisNom = e.Pais.Nombre,
+                                paisNom = e.Nombre,
                             };
 
             cbPais.DataSource = qryPaises.ToList();
@@ -186,6 +186,7 @@ namespace PracticaClubsORM.FORMULARIS
                 if (ferCanvis())
                 {
                     IdClub = e.ClubID.ToString();
+                    NomClub = e.Nombre.ToString();
                     xb = true;
                 }
                 else

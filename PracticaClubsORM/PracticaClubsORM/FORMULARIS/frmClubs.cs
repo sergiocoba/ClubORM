@@ -16,8 +16,8 @@ namespace PracticaClubsORM.FORMULARIS
     {
         FrmAMBclubs aMBclubs= null;
         //private ClubsEntities7 clubsBD {  get; set; } = new ClubsEntities7();
-        private ClubsEntities clubsBD { get; set; } = new ClubsEntities();
-        public FrmClubs(ClubsEntities xclub)
+        private ClubsEntities10 clubsBD { get; set; } = new ClubsEntities10();
+        public FrmClubs(ClubsEntities10 xclub)
         {
             InitializeComponent();
             clubsBD = xclub;
@@ -27,10 +27,7 @@ namespace PracticaClubsORM.FORMULARIS
 
         private void FrmClubs_Load(object sender, EventArgs e)
         {
-            
-            
-
-
+            getDadesSenseFiltre();
         }
 
         private void ConfigurarColumnaLogo()
@@ -62,7 +59,7 @@ namespace PracticaClubsORM.FORMULARIS
                            };
 
             var clubsList = qryClubs.ToList();
-
+            
             // Asigna los datos al DataGridView
             dgvClubs.DataSource = clubsList;
 
@@ -99,7 +96,7 @@ namespace PracticaClubsORM.FORMULARIS
                         row.Cells["Logo"].Value = null; // Si la cadena Base64 está vacía, asigna null
                     }
                 }
-
+                dgvClubs.Columns["LogoBase64"].Visible = false;
             }
         }
 
@@ -120,7 +117,6 @@ namespace PracticaClubsORM.FORMULARIS
         }
 
 
-
         private void pbAdd_Click(object sender, EventArgs e)
         {
             aMBclubs = new FrmAMBclubs('A',clubsBD);
@@ -128,8 +124,27 @@ namespace PracticaClubsORM.FORMULARIS
             getDadesSenseFiltre();
             if (aMBclubs.NomClub != "")
             {
-                //seleccionarFila(fABMestudiantes.nom1);
+                seleccionarFila(aMBclubs.NomClub);
             }
         }
+
+        private void seleccionarFila(string name)
+        {
+            int i = -1;
+            Boolean xbTrobat = false;
+
+            while (!xbTrobat && i < dgvClubs.Rows.Count)
+            {
+                i++;
+                xbTrobat = (dgvClubs.Rows[i].Cells["Nombre"].Value.ToString() == name);
+            }
+            if (dgvClubs.Rows.Count > 0)
+            {
+                dgvClubs.Rows[i].Selected = true;
+                dgvClubs.FirstDisplayedScrollingRowIndex = i;
+            }
+        }
+
+
     }
 }

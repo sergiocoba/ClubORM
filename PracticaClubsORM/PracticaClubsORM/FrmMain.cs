@@ -14,10 +14,12 @@ namespace PracticaClubsORM
 {
     public partial class FrmMain : Form
     {
+        //variables FRM 
         FrmClubs FrmClubs;
-        //private ClubsEntities7 clubsBd { get; set; } = new ClubsEntities7();
         FrmCategoria fmcategoria;
-        private ClubsEntities clubsBd { get; set; } = new ClubsEntities();
+        FrmPaises FrmPaises;
+
+        private ClubsEntities10 clubsBd { get; set; } = new ClubsEntities10();
         public FrmMain()
         {
             InitializeComponent();
@@ -117,6 +119,20 @@ namespace PracticaClubsORM
                 fmcategoria.Show();
             }
             fmcategoria.Activate();
+        }
+
+        private void paisesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String xnom = "Paises";
+            if (!(ja_esta_obert(xnom)))
+            {
+                FrmPaises = new FrmPaises(clubsBd);
+                FrmPaises.Name = xnom;
+                FrmPaises.MdiParent = this;
+                FrmPaises.Show();
+            }
+            FrmPaises.Activate();
+
         }
     }
 }

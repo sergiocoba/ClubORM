@@ -13,26 +13,21 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmCategoria : Form
     {
-        private ClubsEntities clubbd { get; set; } = new ClubsEntities();
+        private ClubsEntities10 clubbd { get; set; } = new ClubsEntities10();
         bool bfirst = true;
 
         public int id { get; set; }
         public String nom { get; set; } = "";
-        public FrmCategoria(ClubsEntities bd)
+        public FrmCategoria(ClubsEntities10 bd)
         {
             InitializeComponent();
             clubbd = bd;
         }
 
-
-        private void dgvInscrit_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
             omplirComboClubs();
+            getDadesClubsInscrit();
             bfirst = false;
 
         }
@@ -45,19 +40,19 @@ namespace PracticaClubsORM.FORMULARIS
                                     id = c.ClubID,
                                     nom = c.Nombre,
                                 };
-            cbEstudiants.DataSource = qryClubs.ToList();
-            cbEstudiants.DisplayMember = "nom";
-            cbEstudiants.ValueMember = "id";
-            if (cbEstudiants.Items.Count > 0)
+            cbClubs.DataSource = qryClubs.ToList();
+            cbClubs.DisplayMember = "nom";
+            cbClubs.ValueMember = "id";
+            if (cbClubs.Items.Count > 0)
             {
-                cbEstudiants.SelectedIndex = 0;
+                cbClubs.SelectedIndex = 0;
             }
         }
 
-        private void cbEstudiants_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbClubs_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (!bfirst && cbEstudiants.SelectedValue != null)
+            if (!bfirst && cbClubs.SelectedValue != null)
             {
                 getDadesClubsInscrit();
 
@@ -67,7 +62,7 @@ namespace PracticaClubsORM.FORMULARIS
         private void getDadesClubsInscrit()
         {
             var qryClubsIn = (from g in clubbd.ClubCategorias
-                               where (g.ClubID == (Int32)cbEstudiants.SelectedValue)
+                               where (g.ClubID == (Int32)cbClubs.SelectedValue)
                                select new
                                {
                                    nombre = g.Categorias.Nombre,
@@ -97,7 +92,7 @@ namespace PracticaClubsORM.FORMULARIS
                            where g.Nombre == nomclub
                            select g.CategoriaID).FirstOrDefault();
 
-            c.ClubID = (Int32)cbEstudiants.SelectedValue;
+            c.ClubID = (Int32)cbClubs.SelectedValue;
             c.CategoriaID = categoriaId;
             clubbd.ClubCategorias.Add(c);
 
@@ -114,7 +109,7 @@ namespace PracticaClubsORM.FORMULARIS
                                where g.Nombre == nomclub
                                select g.CategoriaID).FirstOrDefault();
 
-            int clubId = (Int32)cbEstudiants.SelectedValue;
+            int clubId = (Int32)cbClubs.SelectedValue;
 
             var clubCategoria = (from cc in clubbd.ClubCategorias
                                  where cc.ClubID == clubId && cc.CategoriaID == categoriaId
@@ -158,6 +153,12 @@ namespace PracticaClubsORM.FORMULARIS
             }
         }
 
-        
+        private void cbClubs_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (!bfirst && cbClubs.SelectedValue != null)
+            {
+                getDadesClubsInscrit();
+            }
+        }
     }
 }

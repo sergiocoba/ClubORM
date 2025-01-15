@@ -35,23 +35,24 @@
             this.sortirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clubsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expedientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.generalToolStripMenuItem,
             this.gestioToolStripMenuItem,
             this.consultesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,20 +62,20 @@
             this.testConnexioToolStripMenuItem,
             this.sortirToolStripMenuItem});
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
-            this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.generalToolStripMenuItem.Text = "General";
             // 
             // testConnexioToolStripMenuItem
             // 
             this.testConnexioToolStripMenuItem.Name = "testConnexioToolStripMenuItem";
-            this.testConnexioToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.testConnexioToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.testConnexioToolStripMenuItem.Text = "Test Connexio";
             this.testConnexioToolStripMenuItem.Click += new System.EventHandler(this.testConnexioToolStripMenuItem_Click);
             // 
             // sortirToolStripMenuItem
             // 
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
-            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.sortirToolStripMenuItem.Text = "Sortir";
             this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
             // 
@@ -82,18 +83,26 @@
             // 
             this.gestioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clubsToolStripMenuItem,
-            this.categoriesToolStripMenuItem});
+            this.categoriesToolStripMenuItem,
+            this.paisesToolStripMenuItem});
             this.gestioToolStripMenuItem.Enabled = false;
             this.gestioToolStripMenuItem.Name = "gestioToolStripMenuItem";
-            this.gestioToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.gestioToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.gestioToolStripMenuItem.Text = "Gestio";
             // 
             // clubsToolStripMenuItem
             // 
             this.clubsToolStripMenuItem.Name = "clubsToolStripMenuItem";
-            this.clubsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clubsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.clubsToolStripMenuItem.Text = "Clubs";
             this.clubsToolStripMenuItem.Click += new System.EventHandler(this.clubsToolStripMenuItem_Click);
+            // 
+            // categoriesToolStripMenuItem
+            // 
+            this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.categoriesToolStripMenuItem.Text = "Categories";
+            this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
             // 
             // consultesToolStripMenuItem
             // 
@@ -102,31 +111,31 @@
             this.cursosToolStripMenuItem});
             this.consultesToolStripMenuItem.Enabled = false;
             this.consultesToolStripMenuItem.Name = "consultesToolStripMenuItem";
-            this.consultesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.consultesToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
             this.consultesToolStripMenuItem.Text = "Consultes";
             // 
             // expedientsToolStripMenuItem
             // 
             this.expedientsToolStripMenuItem.Name = "expedientsToolStripMenuItem";
-            this.expedientsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.expedientsToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
             this.expedientsToolStripMenuItem.Text = "Expedients";
             // 
             // cursosToolStripMenuItem
             // 
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
             this.cursosToolStripMenuItem.Text = "Cursos";
             // 
-            // categoriesToolStripMenuItem
+            // paisesToolStripMenuItem
             // 
-            this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.categoriesToolStripMenuItem.Text = "Categories";
-            this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
+            this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
+            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.paisesToolStripMenuItem.Text = "Paises";
+            this.paisesToolStripMenuItem.Click += new System.EventHandler(this.paisesToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.menuStrip1);
@@ -158,6 +167,7 @@
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clubsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paisesToolStripMenuItem;
     }
 }
 

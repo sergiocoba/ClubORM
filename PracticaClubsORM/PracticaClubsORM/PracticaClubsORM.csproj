@@ -143,6 +143,12 @@
     <Compile Include="FORMULARIS\FrmAMBclubs.Designer.cs">
       <DependentUpon>FrmAMBclubs.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMULARIS\FrmAMBPaises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIS\FrmAMBPaises.Designer.cs">
+      <DependentUpon>FrmAMBPaises.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMULARIS\FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,12 @@
     </Compile>
     <Compile Include="FORMULARIS\frmClubs.Designer.cs">
       <DependentUpon>frmClubs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIS\FrmPaises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIS\FrmPaises.Designer.cs">
+      <DependentUpon>FrmPaises.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -211,11 +223,17 @@
     <EmbeddedResource Include="FORMULARIS\FrmAMBclubs.resx">
       <DependentUpon>FrmAMBclubs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIS\FrmAMBPaises.resx">
+      <DependentUpon>FrmAMBPaises.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIS\FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIS\frmClubs.resx">
       <DependentUpon>frmClubs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIS\FrmPaises.resx">
+      <DependentUpon>FrmPaises.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -302,6 +320,7 @@
       <DependentUpon>ModelClubs.edmx</DependentUpon>
       <LastGenOutput>ModelClubs.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\noImage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
