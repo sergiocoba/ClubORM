@@ -83,26 +83,46 @@ namespace PracticaClubsORM.FORMULARIS
             FrmAMBPaises = new FrmAMBPaises('A', clubsBD);
             FrmAMBPaises.ShowDialog();
             getDadesPais();
-            if(FrmAMBPaises.nomPais != "")
+            
+            if (FrmAMBPaises.nomPais != "")
             {
+                
                 seleccionarFila(FrmAMBPaises.nomPais);
             }
         }
 
         private void seleccionarFila(string nomPais)
         {
-            int i = -1;
-            Boolean xbTrobat = false;
+            bool paisEncontrado = false;
 
-            while (!xbTrobat && i < dgvPais.Rows.Count)
+            for (int i = 0; i < cbContinente.Items.Count; i++)
             {
-                i++;
-                xbTrobat = (dgvPais.Rows[i].Cells["nomPais"].Value.ToString() == nomPais);
+                cbContinente.SelectedIndex = i;
+                getDadesPais();
+
+                for (int j = 0; j < dgvPais.Rows.Count; j++)
+                {
+                    if (dgvPais.Rows[j].Cells["nomPais"].Value != null &&
+                        dgvPais.Rows[j].Cells["nomPais"].Value.ToString().Trim().Equals(nomPais.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        
+                        dgvPais.Rows[j].Selected = true;
+                        dgvPais.FirstDisplayedScrollingRowIndex = j;
+                        
+                        paisEncontrado = true;
+                        break;
+                    }
+                }
+
+                if (paisEncontrado)
+                {
+                    break;
+                }
             }
-            if (dgvPais.Rows.Count > 0)
+
+            if (!paisEncontrado)
             {
-                dgvPais.Rows[i].Selected = true;
-                dgvPais.FirstDisplayedScrollingRowIndex = i;
+                MessageBox.Show("No se encontró el país en ningún continente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -115,7 +135,10 @@ namespace PracticaClubsORM.FORMULARIS
 
             FrmAMBPaises.ShowDialog();
             getDadesPais();
-            
+            if (FrmAMBPaises.nomPais != "")
+            {
+                seleccionarFila(FrmAMBPaises.nomPais);
+            }
         }
 
         private void pbDelete_Click(object sender, EventArgs e)
@@ -124,9 +147,6 @@ namespace PracticaClubsORM.FORMULARIS
             {
                 FrmAMBPaises = new FrmAMBPaises('B', clubsBD);
 
-                // posem les dades de la fila a les propietats de fABMTerritoris
-                // ****ALERTA!!! ARA ELS NOMS DE LES COLUMNES DEL DATAGRIDVIEW NO SÓN ELS DELS CAMPS DE LA TAULA EN LA BD
-                //     SINÓ QUE SÓN ELS QUE HEM UTILITZAT EN LA QUERY DINS DE getDades() o getDadesSenseFiltre()
                 FrmAMBPaises.idPais = (Int32)dgvPais.SelectedRows[0].Cells["paisID"].Value;
                 FrmAMBPaises.nomPais = dgvPais.SelectedRows[0].Cells["nomPais"].Value.ToString().Trim();
                 FrmAMBPaises.idContinente = (Int32)dgvPais.SelectedRows[0].Cells["id"].Value;

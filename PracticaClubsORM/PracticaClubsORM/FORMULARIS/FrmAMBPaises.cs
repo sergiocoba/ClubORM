@@ -96,15 +96,22 @@ namespace PracticaClubsORM.FORMULARIS
 
         private bool delPais()
         {
-
             Boolean xb = false;
             Pais p = clubsd.Pais.Find(idPais);
 
 
-            if (p != null)
+            Ubicacion u = clubsd.Ubicacion.Find(idPais);                  
+
+            if (p != null && u == null)
             {
                 clubsd.Pais.Remove(p);
                 xb = ferCanvis();
+            }
+            else
+            {
+                MessageBox.Show("No pots eliminar paisos vinculats a clubs", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+
             }
             return xb;
         }
