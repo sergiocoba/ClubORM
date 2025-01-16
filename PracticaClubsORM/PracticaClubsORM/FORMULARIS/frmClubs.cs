@@ -51,7 +51,9 @@ namespace PracticaClubsORM.FORMULARIS
                            join m in clubsBD.MediaVisual on c.ClubID equals m.ClubID
                            select new
                            {
+                               ClubID = c.ClubID,
                                Nombre = c.Clubs.Nombre,
+                               telefono = c.Telefono,
                                Fundacion = c.Clubs.Fundacion,
                                Contacto = c.Telefono,
                                Ciudad = u.Ciudad,
@@ -96,8 +98,16 @@ namespace PracticaClubsORM.FORMULARIS
                         row.Cells["Logo"].Value = null; // Si la cadena Base64 está vacía, asigna null
                     }
                 }
-                dgvClubs.Columns["LogoBase64"].Visible = false;
+                iniDgrid();
+                
             }
+        }
+
+        private void iniDgrid()
+        {
+            dgvClubs.Columns["ClubID"].Visible = false;
+            dgvClubs.Columns["telefono"].Visible = false;
+            dgvClubs.Columns["LogoBase64"].Visible = false;
         }
 
         private void ConfigurarTamañoColumnaLogo()
@@ -145,6 +155,19 @@ namespace PracticaClubsORM.FORMULARIS
             }
         }
 
+        private void dgvClubs_DoubleClick(object sender, EventArgs e)
+        {
+            aMBclubs = new FrmAMBclubs('M', clubsBD);
+            aMBclubs.IdClub = dgvClubs.SelectedRows[0].Cells["ClubID"].Value.ToString().Trim();
+            aMBclubs.NomClub = dgvClubs.SelectedRows[0].Cells["Nombre"].Value.ToString().Trim();
+            
+            aMBclubs.telefono = dgvClubs.SelectedRows[0].Cells["telefono"].Value.ToString().Trim();
 
+            //FrmAMBPaises.nomPais = dgvPais.SelectedRows[0].Cells["nomPais"].Value.ToString().Trim();
+            //FrmAMBPaises.idContinente = (Int32)dgvPais.SelectedRows[0].Cells["id"].Value;
+
+            //aMBclubs.ShowDialog();
+            //getDadesSenseFiltre();
+        }
     }
 }

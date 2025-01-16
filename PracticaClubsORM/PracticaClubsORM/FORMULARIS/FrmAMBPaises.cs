@@ -35,9 +35,10 @@ namespace PracticaClubsORM.FORMULARIS
             {
                 case 'A': this.Text = "Alta de un pais"; break;
                 case 'M': this.Text = "Modificar pais"; break;
-                
+                case 'B': this.Text = "Borrar pais"; break;
             }
             tbNomPais.Text = nomPais;
+
             if (op == 'A')
             {
                 cbContinente.SelectedIndex = 0;
@@ -46,6 +47,9 @@ namespace PracticaClubsORM.FORMULARIS
             {
                 cbContinente.SelectedValue = idContinente;
             }
+
+            tbNomPais.Enabled = (op != 'B');
+            cbContinente.Enabled = (op != 'B');
         }
 
         private void omplirComboContinentes()
@@ -81,6 +85,7 @@ namespace PracticaClubsORM.FORMULARIS
                 {
                     case 'A': xb = addPais(); break;
                     case 'M': xb = modPais(); break;
+                    case 'B': xb = delPais(); break;
                 }
                 if (xb)
                 {
@@ -89,13 +94,26 @@ namespace PracticaClubsORM.FORMULARIS
             }
         }
 
+        private bool delPais()
+        {
+
+            Boolean xb = false;
+            Pais p = clubsd.Pais.Find(idPais);
+
+
+            if (p != null)
+            {
+                clubsd.Pais.Remove(p);
+                xb = ferCanvis();
+            }
+            return xb;
+        }
+
         private bool modPais()
         {
             Boolean xb = false;
             Pais p = clubsd.Pais.Find(idPais);
            
-
-
             if (p != null)
             {
                 p.Nombre = tbNomPais.Text.Trim();
@@ -169,7 +187,6 @@ namespace PracticaClubsORM.FORMULARIS
             }
             return xb;
         }
-
 
         private Boolean vDades()
         {

@@ -122,7 +122,7 @@ namespace PracticaClubsORM.FORMULARIS
         {
             if (dgvPais.Rows.Count > 0)
             {
-                FrmAMBPaises = new FrmAMBPaises('b', clubsBD);
+                FrmAMBPaises = new FrmAMBPaises('B', clubsBD);
 
                 // posem les dades de la fila a les propietats de fABMTerritoris
                 // ****ALERTA!!! ARA ELS NOMS DE LES COLUMNES DEL DATAGRIDVIEW NO SÓN ELS DELS CAMPS DE LA TAULA EN LA BD

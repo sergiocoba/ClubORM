@@ -22,7 +22,7 @@ namespace PracticaClubsORM.FORMULARIS
         Char op { get; set; } = '\0';
         string base64Image;
 
-        public string IdClub { get; set; } = "";
+        public String IdClub { get; set; }
         public String NomClub { get; set; } = "";
         public String telefono { get; set; } = "";
         public String correo { get; set; } = "";
@@ -86,9 +86,6 @@ namespace PracticaClubsORM.FORMULARIS
             }
         }
         
-        
-        
-
         private void button1_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())

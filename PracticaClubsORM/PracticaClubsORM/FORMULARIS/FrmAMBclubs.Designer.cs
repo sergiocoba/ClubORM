@@ -120,7 +120,7 @@
             // cbPais
             // 
             this.cbPais.FormattingEnabled = true;
-            this.cbPais.Location = new System.Drawing.Point(189, 310);
+            this.cbPais.Location = new System.Drawing.Point(189, 313);
             this.cbPais.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbPais.Name = "cbPais";
             this.cbPais.Size = new System.Drawing.Size(251, 26);
@@ -264,11 +264,11 @@
             this.lbFundacion.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lbFundacion.Size = new System.Drawing.Size(133, 24);
             this.lbFundacion.TabIndex = 28;
-            this.lbFundacion.Text = "Fundacion";
+            this.lbFundacion.Text = "Año Fundacion";
             // 
             // tbCodigoPostal
             // 
-            this.tbCodigoPostal.Location = new System.Drawing.Point(189, 273);
+            this.tbCodigoPostal.Location = new System.Drawing.Point(189, 275);
             this.tbCodigoPostal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbCodigoPostal.MaxLength = 20;
             this.tbCodigoPostal.Name = "tbCodigoPostal";

@@ -64,6 +64,7 @@
             this.dgvClubs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClubs.Size = new System.Drawing.Size(781, 462);
             this.dgvClubs.TabIndex = 13;
+            this.dgvClubs.DoubleClick += new System.EventHandler(this.dgvClubs_DoubleClick);
             // 
             // pbAdd
             // 
