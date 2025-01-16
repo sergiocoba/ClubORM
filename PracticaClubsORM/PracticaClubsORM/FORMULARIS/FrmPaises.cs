@@ -17,10 +17,10 @@ namespace PracticaClubsORM.FORMULARIS
         //variables frmAMBç
         FrmAMBPaises FrmAMBPaises=null;
 
-        private ClubsEntities2 clubsBD { get; set; } = new ClubsEntities2();
+        private ClubsEntities3 clubsBD { get; set; } = new ClubsEntities3();
         bool bfirst = true;
 
-        public FrmPaises(ClubsEntities2 clubsBd)
+        public FrmPaises(ClubsEntities3 clubsBd)
         {
             InitializeComponent();
             clubsBD = clubsBd;

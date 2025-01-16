@@ -44,7 +44,7 @@
     <Key>
       <PropertyRef Name="FotoId" />
     </Key>
-    <Property Name="FotoId" Type="int" Nullable="false" />
+    <Property Name="FotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ClubID" Type="int" Nullable="false" />
     <Property Name="Foto" Type="varchar(max)" />
   </EntityType>
@@ -73,7 +73,7 @@
     <Property Name="ClubID" Type="int" />
     <Property Name="Usuario" Type="nvarchar" MaxLength="255" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="255" />
-    <Property Name="Valoracion" Type="tinyint" />
+    <Property Name="Valoracion" Type="int" />
   </EntityType>
   <EntityType Name="Ubicacion">
     <Key>

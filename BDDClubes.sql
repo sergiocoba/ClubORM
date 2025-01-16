@@ -65,7 +65,7 @@ CREATE TABLE Reseña (
     ClubID INT FOREIGN KEY REFERENCES Clubs(ClubID) ON DELETE CASCADE,
     Usuario NVARCHAR(255),
     Descripcion NVARCHAR(255),
-    Valoracion TINYINT CHECK (Valoracion BETWEEN 1 AND 5)
+    Valoracion INT CHECK (Valoracion BETWEEN 1 AND 5)
 );
 
 CREATE TABLE Galeria (
@@ -200,7 +200,7 @@ VALUES
 (11, '523334567890', 'info@chivas.com.mx'),
 (12, '12132342345', 'info@clippers.com'),
 (13, '61731234567', 'info@reds.com.au');
-
+SELECT * FROM Reseña
 SELECT * FROM ClubCategorias
 SELECT * FROM Contacto
 SELECT * FROM MediaVisual

@@ -13,14 +13,14 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmAMBPaises : Form
     {
-        private ClubsEntities2 clubsd { get; set; } = new ClubsEntities2();
+        private ClubsEntities3 clubsd { get; set; } = new ClubsEntities3();
 
         //variables
         Char op { get; set; } = '\0';
         public string nomPais { get; set; } = "";
         public int idContinente { get; set; }
         public int idPais { get; set; }
-        public FrmAMBPaises(char opcio, ClubsEntities2 bd)
+        public FrmAMBPaises(char opcio, ClubsEntities3 bd)
         {
             InitializeComponent();
             clubsd = bd;

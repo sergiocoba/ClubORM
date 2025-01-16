@@ -15,7 +15,7 @@ namespace PracticaClubsORM.FORMULARIS
     public partial class FrmAMBclubs : Form
     {
         //private ClubsEntities7 clubbd { get; set; } = new ClubsEntities7();
-        private ClubsEntities2 clubbd { get; set; } = new ClubsEntities2();
+        private ClubsEntities3 clubbd { get; set; } = new ClubsEntities3();
 
         //variables
         Boolean bFirst = true;
@@ -31,7 +31,7 @@ namespace PracticaClubsORM.FORMULARIS
         public String pais { get; set; } = "";
         public int idPais { get; set; }
         
-        public FrmAMBclubs(char opcio, ClubsEntities2 bd)
+        public FrmAMBclubs(char opcio, ClubsEntities3 bd)
         {
             InitializeComponent();
             clubbd = bd;

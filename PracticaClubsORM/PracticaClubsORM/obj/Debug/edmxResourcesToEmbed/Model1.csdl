@@ -55,7 +55,7 @@
     <Key>
       <PropertyRef Name="FotoId" />
     </Key>
-    <Property Name="FotoId" Type="Int32" Nullable="false" />
+    <Property Name="FotoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ClubID" Type="Int32" Nullable="false" />
     <Property Name="Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Clubs" Relationship="Self.FK__Galeria__ClubID__571DF1D5" FromRole="Galeria" ToRole="Clubs" />
@@ -88,7 +88,7 @@
     <Property Name="ClubID" Type="Int32" />
     <Property Name="Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Valoracion" Type="Byte" />
+    <Property Name="Valoracion" Type="Int32" />
     <NavigationProperty Name="Clubs" Relationship="Self.FK__Reseña__ClubID__534D60F1" FromRole="Reseña" ToRole="Clubs" />
   </EntityType>
   <EntityType Name="Ubicacion">
@@ -230,7 +230,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ClubsEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="ClubsEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categorias" EntityType="Self.Categorias" />
     <EntitySet Name="ClubCategorias" EntityType="Self.ClubCategorias" />
     <EntitySet Name="Clubs" EntityType="Self.Clubs" />

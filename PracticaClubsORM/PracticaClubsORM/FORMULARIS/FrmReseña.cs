@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,9 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmReseña : Form
     {
-        private ClubsEntities2 clubbd { get; set; } = new ClubsEntities2();
+        private ClubsEntities3 clubbd { get; set; } = new ClubsEntities3();
         int calificacion = 0;
-        public FrmReseña(ClubsEntities2 c)
+        public FrmReseña(ClubsEntities3 c)
         {
             InitializeComponent();
             clubbd = c;
@@ -76,8 +77,8 @@ namespace PracticaClubsORM.FORMULARIS
         {
             if (tbReseña.Text == "Escribe una reseña sobre el club")
             {
-                tbReseña.Text = ""; // Limpia el texto del placeholder.
-                tbReseña.ForeColor = Color.Black; // Cambia el color del texto al color predeterminado.
+                tbReseña.Text = "";
+                tbReseña.ForeColor = Color.Black;
             }
         }
 
@@ -85,8 +86,8 @@ namespace PracticaClubsORM.FORMULARIS
         {
             if (string.IsNullOrWhiteSpace(tbReseña.Text))
             {
-                tbReseña.Text = "Escribe una reseña sobre el club"; // Reaparece el placeholder.
-                tbReseña.ForeColor = Color.Gray; // Cambia el color a gris para que parezca un placeholder.
+                tbReseña.Text = "Escribe una reseña sobre el club";
+                tbReseña.ForeColor = Color.Gray; 
             }
         }
 
@@ -94,8 +95,8 @@ namespace PracticaClubsORM.FORMULARIS
         {
             if (tbNombre.Text == "Nombre y apellidos")
             {
-                tbNombre.Text = ""; // Limpia el texto del placeholder.
-                tbNombre.ForeColor = Color.Black; // Cambia el color del texto al color predeterminado.
+                tbNombre.Text = "";
+                tbNombre.ForeColor = Color.Black;
             }
         }
 
@@ -103,8 +104,8 @@ namespace PracticaClubsORM.FORMULARIS
         {
             if (string.IsNullOrWhiteSpace(tbNombre.Text))
             {
-                tbNombre.Text = "Nombre y apellidos"; // Reaparece el placeholder.
-                tbNombre.ForeColor = Color.Gray; // Cambia el color a gris para que parezca un placeholder.
+                tbNombre.Text = "Nombre y apellidos";
+                tbNombre.ForeColor = Color.Gray;
             }
         }
 
@@ -119,20 +120,75 @@ namespace PracticaClubsORM.FORMULARIS
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(tbReseña.Text))
+            if (string.IsNullOrWhiteSpace(tbReseña.Text) || tbReseña.Text == "Por favor, selecciona una calificación.")
             {
                 MessageBox.Show("Por favor, escribe una reseña.");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(tbNombre.Text))
+            if (string.IsNullOrWhiteSpace(tbNombre.Text) || tbNombre.Text == "Nombre y apellidos")
             {
-                MessageBox.Show("Por favor, escribe una reseña.");
+                MessageBox.Show("Por favor, escribe un nombre.");
                 return;
             }
 
             r.Usuario = tbNombre.Text;
             r.Descripcion = tbReseña.Text;
             r.Valoracion = calificacion;
+            r.ClubID = (int)cbClubs.SelectedValue;
+
+            clubbd.Reseña.Add(r);
+            MessageBox.Show("Reseña añadida");
+            ferCanvis();
+
+            reiniciarMenu();
+            
+
+
+
+        }
+
+        private void reiniciarMenu()
+        {
+            calificacion = 0;
+            for (int i = 1; i <= 5; i++)
+            {
+                PictureBox estrella = this.Controls.Find($"estrella{i}", true).FirstOrDefault() as PictureBox;
+                if (estrella != null)
+                {
+                    estrella.Image = Properties.Resources.Estrella_vacia;
+                }
+            }
+
+            tbNombre.Text = ""; 
+            tbNombre.ForeColor = Color.Black;
+            tbReseña.Text = "Escribe una reseña sobre el club"; 
+            tbReseña.ForeColor = Color.Gray;
+
+        }
+
+        private void ferCanvis()
+        {
+
+            try
+            {
+                clubbd.SaveChanges();
+
+            }
+            catch (Exception excp)
+            {
+                // Hauríem de posar un missatge que sigui més entenedor per a l'usuari ja que el missatge de l'excepció és molt tècnic
+                // Aquí ho fem així perquè estem fent exemples de desenvolupament i, per a tu, és més interessant veure l'error des d'aquest punt de vista tècnic
+                MessageBox.Show(excp.InnerException.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Eliminem l'acció que volíem realitzar perquè, si no ho fem, en el pròxim SaveChanges() es tornarà a provar de fer
+                // Això passa perquè les accions es van posant en una cua i no s'eliminen de la cua si no es fa efectiu el canvi.
+                // Es pot comprovar que passa això comentant aquestes línies del for, fent una alta d'un ID ja existent i després posar un ID correcte.
+                foreach (var accio in clubbd.ChangeTracker.Entries())
+                {
+                    accio.State = EntityState.Detached;
+                }
+
+            }
 
         }
     }

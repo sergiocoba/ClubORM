@@ -18,10 +18,10 @@ namespace PracticaClubsORM.FORMULARIS
         int indice = 0;
         private List<byte[]> imagesBase64;
         string newImage64;
-        private ClubsEntities2 clubsBD { get; set; } = new ClubsEntities2();
+        private ClubsEntities3 clubsBD { get; set; } = new ClubsEntities3();
 
 
-        public FrmGaleria(ClubsEntities2 c)
+        public FrmGaleria(ClubsEntities3 c)
         {
             InitializeComponent();
             clubsBD = c;
