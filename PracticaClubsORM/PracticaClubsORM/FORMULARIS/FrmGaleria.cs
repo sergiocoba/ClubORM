@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,10 +17,11 @@ namespace PracticaClubsORM.FORMULARIS
     {
         int indice = 0;
         private List<byte[]> imagesBase64;
-        private ClubsEntities1 clubsBD { get; set; } = new ClubsEntities1();
+        string newImage64;
+        private ClubsEntities2 clubsBD { get; set; } = new ClubsEntities2();
 
 
-        public FrmGaleria(ClubsEntities1 c)
+        public FrmGaleria(ClubsEntities2 c)
         {
             InitializeComponent();
             clubsBD = c;
@@ -46,7 +49,7 @@ namespace PracticaClubsORM.FORMULARIS
 
         private void btSiguiente_Click(object sender, EventArgs e)
         {
-            CargarImagenes((int)cbClubs.SelectedValue);
+            //CargarImagenes((int)cbClubs.SelectedValue);
 
             if (indice < imagesBase64.Count - 1)
             {
@@ -57,7 +60,8 @@ namespace PracticaClubsORM.FORMULARIS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (imagesBase64.Count > 0)
+            CargarImagenes((int)cbClubs.SelectedValue);
+            if (imagesBase64.Count > 0 && imagesBase64 !=null )
                 CargarImagen();
         }
         private void CargarImagen()
@@ -68,7 +72,7 @@ namespace PracticaClubsORM.FORMULARIS
                 if (indice >= imagesBase64.Count) indice = imagesBase64.Count - 1;
 
                 byte[] imageBytes = imagesBase64[indice];  
-                pbAnterior.Image = ConvertBytesToImage(imageBytes);
+                pbFotos.Image = ConvertBytesToImage(imageBytes);
             }
         }
         private Image ConvertBytesToImage(byte[] imageBytes)
@@ -81,15 +85,17 @@ namespace PracticaClubsORM.FORMULARIS
         private void CargarImagenes(int clubID)
         { 
             {
-                var query = from g in clubsBD.Galeria
-                            where g.ClubID == clubID
-                            select g.Foto;
+                // Primero obtén las cadenas Base64 como están en la base de datos
+                var base64Strings = clubsBD.Galeria
+                    .Where(g => g.ClubID == clubID)
+                    .Select(g => g.Foto) // Solo selecciona las cadenas Base64
+                    .ToList(); // Materializa los datos en memoria
 
-                
-                imagesBase64 = query
-                .Where(f => !string.IsNullOrEmpty(f)) 
-                .Select(f => Convert.FromBase64String(f))  
-                .ToList();
+                // Luego convierte las cadenas Base64 a byte[] en memoria
+                imagesBase64 = base64Strings
+                    .Where(f => !string.IsNullOrEmpty(f)) // Filtra nulos o vacíos
+                    .Select(f => Convert.FromBase64String(f)) // Convierte cada cadena a byte[]
+                    .ToList();
             }
         }
 
@@ -100,6 +106,72 @@ namespace PracticaClubsORM.FORMULARIS
                 indice--;
                 CargarImagen();
             }
+        }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Seleccionar una imagen";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    
+
+                    newImage64 = ConvertImageToBase64(openFileDialog.FileName);
+                    agregarImagen();
+                }
+
+            }
+        }
+
+        private void agregarImagen()
+        {
+            Galeria g = new Galeria();
+            
+            g.ClubID = (int)cbClubs.SelectedValue;
+            g.Foto = newImage64;
+            clubsBD.Galeria.Add(g);
+
+            ferCanvis();
+        }
+        private void ferCanvis()
+        {
+            
+            try
+            {
+                clubsBD.SaveChanges();
+                
+            }
+            catch (Exception excp)
+            {
+                // Hauríem de posar un missatge que sigui més entenedor per a l'usuari ja que el missatge de l'excepció és molt tècnic
+                // Aquí ho fem així perquè estem fent exemples de desenvolupament i, per a tu, és més interessant veure l'error des d'aquest punt de vista tècnic
+                MessageBox.Show(excp.InnerException.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Eliminem l'acció que volíem realitzar perquè, si no ho fem, en el pròxim SaveChanges() es tornarà a provar de fer
+                // Això passa perquè les accions es van posant en una cua i no s'eliminen de la cua si no es fa efectiu el canvi.
+                // Es pot comprovar que passa això comentant aquestes línies del for, fent una alta d'un ID ja existent i després posar un ID correcte.
+                foreach (var accio in clubsBD.ChangeTracker.Entries())
+                {
+                    accio.State = EntityState.Detached;
+                }
+
+            }
+            
+        }
+
+        private string ConvertImageToBase64(string imagePath)
+        {
+            byte[] imageBytes = File.ReadAllBytes(imagePath);
+
+            return Convert.ToBase64String(imageBytes);
+        }
+
+        private void cbClubs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

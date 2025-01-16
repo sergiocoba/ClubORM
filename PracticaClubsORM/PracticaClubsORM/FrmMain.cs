@@ -19,8 +19,9 @@ namespace PracticaClubsORM
         FrmCategoria fmcategoria;
         FrmPaises FrmPaises;
         FrmGaleria frmGaleria;
+        FrmReseña frmReseña;
 
-        private ClubsEntities1 clubsBd { get; set; } = new ClubsEntities1();
+        private ClubsEntities2 clubsBd { get; set; } = new ClubsEntities2();
         public FrmMain()
         {
             InitializeComponent();
@@ -147,6 +148,19 @@ namespace PracticaClubsORM
                 frmGaleria.Show();
             }
             frmGaleria.Activate();
+        }
+
+        private void reseñasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String xnom = "Reseña";
+            if (!(ja_esta_obert(xnom)))
+            {
+                frmReseña = new FrmReseña(clubsBd);
+                frmReseña.Name = xnom;
+                frmReseña.MdiParent = this;
+                frmReseña.Show();
+            }
+            frmReseña.Activate();
         }
     }
 }

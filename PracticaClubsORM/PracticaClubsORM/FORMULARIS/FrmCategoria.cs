@@ -13,12 +13,12 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmCategoria : Form
     {
-        private ClubsEntities1 clubbd { get; set; } = new ClubsEntities1();
+        private ClubsEntities2 clubbd { get; set; } = new ClubsEntities2();
         bool bfirst = true;
 
         public int id { get; set; }
         public String nom { get; set; } = "";
-        public FrmCategoria(ClubsEntities1 bd)
+        public FrmCategoria(ClubsEntities2 bd)
         {
             InitializeComponent();
             clubbd = bd;

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ClubsModelStoreContainer" CdmEntityContainer="ClubsEntities">
+  <EntityContainerMapping StorageEntityContainer="ClubsModelStoreContainer" CdmEntityContainer="ClubsEntities2">
     <EntitySetMapping Name="Categorias">
       <EntityTypeMapping TypeName="ClubsModel.Categorias">
         <MappingFragment StoreEntitySet="Categorias">
@@ -9,15 +9,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ClubCategorias">
+      <EntityTypeMapping TypeName="ClubsModel.ClubCategorias">
+        <MappingFragment StoreEntitySet="ClubCategorias">
+          <ScalarProperty Name="ClubCategoriasID" ColumnName="ClubCategoriasID" />
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+          <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Clubs">
       <EntityTypeMapping TypeName="ClubsModel.Clubs">
         <MappingFragment StoreEntitySet="Clubs">
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Pais" ColumnName="Pais" />
-          <ScalarProperty Name="Continente" ColumnName="Continente" />
-          <ScalarProperty Name="Ressenya" ColumnName="Ressenya" />
-          <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
+          <ScalarProperty Name="Fundacion" ColumnName="Fundacion" />
           <ScalarProperty Name="Horario" ColumnName="Horario" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -32,15 +38,50 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Media">
-      <EntityTypeMapping TypeName="ClubsModel.Media">
-        <MappingFragment StoreEntitySet="Media">
-          <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+    <EntitySetMapping Name="Continentes">
+      <EntityTypeMapping TypeName="ClubsModel.Continentes">
+        <MappingFragment StoreEntitySet="Continentes">
+          <ScalarProperty Name="ContinenteID" ColumnName="ContinenteID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Galeria">
+      <EntityTypeMapping TypeName="ClubsModel.Galeria">
+        <MappingFragment StoreEntitySet="Galeria">
+          <ScalarProperty Name="FotoId" ColumnName="FotoId" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
-          <ScalarProperty Name="FotoPrincipal" ColumnName="FotoPrincipal" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaVisual">
+      <EntityTypeMapping TypeName="ClubsModel.MediaVisual">
+        <MappingFragment StoreEntitySet="MediaVisual">
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
           <ScalarProperty Name="MiniaturaWeb" ColumnName="MiniaturaWeb" />
-          <ScalarProperty Name="Galeria" ColumnName="Galeria" />
           <ScalarProperty Name="GoogleMapsURL" ColumnName="GoogleMapsURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pais">
+      <EntityTypeMapping TypeName="ClubsModel.Pais">
+        <MappingFragment StoreEntitySet="Pais">
+          <ScalarProperty Name="PaisID" ColumnName="PaisID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ContinenteID" ColumnName="ContinenteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reseña">
+      <EntityTypeMapping TypeName="ClubsModel.Reseña">
+        <MappingFragment StoreEntitySet="Reseña">
+          <ScalarProperty Name="ReseñaID" ColumnName="ReseñaID" />
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -52,16 +93,9 @@
           <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="PaisID" ColumnName="PaisID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="ClubCategorias" TypeName="ClubsModel.ClubCategorias" StoreEntitySet="ClubCategorias">
-      <EndProperty Name="Categorias">
-        <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
-      </EndProperty>
-      <EndProperty Name="Clubs">
-        <ScalarProperty Name="ClubID" ColumnName="ClubID" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

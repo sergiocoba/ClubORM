@@ -63,6 +63,16 @@ namespace PracticaClubsORM.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_131301735_0Z1JmAl6D8OBmgWkddM7BAXRLj93poyf_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("360_F_131301735_0Z1JmAl6D8OBmgWkddM7BAXRLj93poyf-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add50 {
             get {
                 object obj = ResourceManager.GetObject("add50", resourceCulture);
@@ -76,6 +86,36 @@ namespace PracticaClubsORM.Properties {
         internal static System.Drawing.Bitmap cancel50 {
             get {
                 object obj = ResourceManager.GetObject("cancel50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap estrella_llena {
+            get {
+                object obj = ResourceManager.GetObject("estrella_llena", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Estrella_vacia {
+            get {
+                object obj = ResourceManager.GetObject("Estrella_vacia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap faf17d2534737a79b51427c8285960bb_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("faf17d2534737a79b51427c8285960bb-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

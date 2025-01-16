@@ -39,6 +39,7 @@
             this.paisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.galeriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reseñasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,14 +68,14 @@
             // testConnexioToolStripMenuItem
             // 
             this.testConnexioToolStripMenuItem.Name = "testConnexioToolStripMenuItem";
-            this.testConnexioToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.testConnexioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.testConnexioToolStripMenuItem.Text = "Test Connexio";
             this.testConnexioToolStripMenuItem.Click += new System.EventHandler(this.testConnexioToolStripMenuItem_Click);
             // 
             // sortirToolStripMenuItem
             // 
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
-            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sortirToolStripMenuItem.Text = "Sortir";
             this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
             // 
@@ -113,7 +114,8 @@
             // consultesToolStripMenuItem
             // 
             this.consultesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.galeriaToolStripMenuItem});
+            this.galeriaToolStripMenuItem,
+            this.reseñasToolStripMenuItem});
             this.consultesToolStripMenuItem.Enabled = false;
             this.consultesToolStripMenuItem.Name = "consultesToolStripMenuItem";
             this.consultesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -125,6 +127,13 @@
             this.galeriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.galeriaToolStripMenuItem.Text = "Galeria";
             this.galeriaToolStripMenuItem.Click += new System.EventHandler(this.galeriaToolStripMenuItem_Click);
+            // 
+            // reseñasToolStripMenuItem
+            // 
+            this.reseñasToolStripMenuItem.Name = "reseñasToolStripMenuItem";
+            this.reseñasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reseñasToolStripMenuItem.Text = "Reseñas";
+            this.reseñasToolStripMenuItem.Click += new System.EventHandler(this.reseñasToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -160,6 +169,7 @@
         private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paisesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem galeriaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reseñasToolStripMenuItem;
     }
 }
 

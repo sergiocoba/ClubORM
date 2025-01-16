@@ -42,8 +42,9 @@
   </EntityType>
   <EntityType Name="Galeria">
     <Key>
-      <PropertyRef Name="ClubID" />
+      <PropertyRef Name="FotoId" />
     </Key>
+    <Property Name="FotoId" Type="int" Nullable="false" />
     <Property Name="ClubID" Type="int" Nullable="false" />
     <Property Name="Foto" Type="varchar(max)" />
   </EntityType>
@@ -131,7 +132,7 @@
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Galeria" Type="Self.Galeria" Multiplicity="0..1" />
+    <End Role="Galeria" Type="Self.Galeria" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Clubs">
         <PropertyRef Name="ClubID" />

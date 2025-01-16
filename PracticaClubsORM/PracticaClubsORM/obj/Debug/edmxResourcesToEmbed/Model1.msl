@@ -49,6 +49,7 @@
     <EntitySetMapping Name="Galeria">
       <EntityTypeMapping TypeName="ClubsModel.Galeria">
         <MappingFragment StoreEntitySet="Galeria">
+          <ScalarProperty Name="FotoId" ColumnName="FotoId" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
           <ScalarProperty Name="Foto" ColumnName="Foto" />
         </MappingFragment>

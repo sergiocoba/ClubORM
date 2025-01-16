@@ -16,8 +16,8 @@ namespace PracticaClubsORM.FORMULARIS
     {
         FrmAMBclubs aMBclubs= null;
         //private ClubsEntities7 clubsBD {  get; set; } = new ClubsEntities7();
-        private ClubsEntities1 clubsBD { get; set; } = new ClubsEntities1();
-        public FrmClubs(ClubsEntities1 xclub)
+        private ClubsEntities2 clubsBD { get; set; } = new ClubsEntities2();
+        public FrmClubs(ClubsEntities2 xclub)
         {
             InitializeComponent();
             clubsBD = xclub;
