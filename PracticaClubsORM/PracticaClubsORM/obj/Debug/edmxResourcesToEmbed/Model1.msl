@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ClubsModel1StoreContainer" CdmEntityContainer="ClubsEntities">
+  <EntityContainerMapping StorageEntityContainer="ClubsModelStoreContainer" CdmEntityContainer="ClubsEntities1">
     <EntitySetMapping Name="Categorias">
-      <EntityTypeMapping TypeName="ClubsModel1.Categorias">
+      <EntityTypeMapping TypeName="ClubsModel.Categorias">
         <MappingFragment StoreEntitySet="Categorias">
           <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ClubCategorias">
-      <EntityTypeMapping TypeName="ClubsModel1.ClubCategorias">
+      <EntityTypeMapping TypeName="ClubsModel.ClubCategorias">
         <MappingFragment StoreEntitySet="ClubCategorias">
           <ScalarProperty Name="ClubCategoriasID" ColumnName="ClubCategoriasID" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clubs">
-      <EntityTypeMapping TypeName="ClubsModel1.Clubs">
+      <EntityTypeMapping TypeName="ClubsModel.Clubs">
         <MappingFragment StoreEntitySet="Clubs">
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Contacto">
-      <EntityTypeMapping TypeName="ClubsModel1.Contacto">
+      <EntityTypeMapping TypeName="ClubsModel.Contacto">
         <MappingFragment StoreEntitySet="Contacto">
           <ScalarProperty Name="ContactoID" ColumnName="ContactoID" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -39,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Continentes">
-      <EntityTypeMapping TypeName="ClubsModel1.Continentes">
+      <EntityTypeMapping TypeName="ClubsModel.Continentes">
         <MappingFragment StoreEntitySet="Continentes">
           <ScalarProperty Name="ContinenteID" ColumnName="ContinenteID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -47,7 +47,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Galeria">
-      <EntityTypeMapping TypeName="ClubsModel1.Galeria">
+      <EntityTypeMapping TypeName="ClubsModel.Galeria">
         <MappingFragment StoreEntitySet="Galeria">
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
           <ScalarProperty Name="Foto" ColumnName="Foto" />
@@ -55,7 +55,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MediaVisual">
-      <EntityTypeMapping TypeName="ClubsModel1.MediaVisual">
+      <EntityTypeMapping TypeName="ClubsModel.MediaVisual">
         <MappingFragment StoreEntitySet="MediaVisual">
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
           <ScalarProperty Name="Logo" ColumnName="Logo" />
@@ -65,7 +65,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pais">
-      <EntityTypeMapping TypeName="ClubsModel1.Pais">
+      <EntityTypeMapping TypeName="ClubsModel.Pais">
         <MappingFragment StoreEntitySet="Pais">
           <ScalarProperty Name="PaisID" ColumnName="PaisID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -74,7 +74,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Reseña">
-      <EntityTypeMapping TypeName="ClubsModel1.Reseña">
+      <EntityTypeMapping TypeName="ClubsModel.Reseña">
         <MappingFragment StoreEntitySet="Reseña">
           <ScalarProperty Name="ReseñaID" ColumnName="ReseñaID" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -85,7 +85,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ubicacion">
-      <EntityTypeMapping TypeName="ClubsModel1.Ubicacion">
+      <EntityTypeMapping TypeName="ClubsModel.Ubicacion">
         <MappingFragment StoreEntitySet="Ubicacion">
           <ScalarProperty Name="UbicacionID" ColumnName="UbicacionID" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ClubsModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ClubsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categorias">
           <Key>
             <PropertyRef Name="CategoriaID" />
@@ -216,7 +216,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ClubsModel1StoreContainer">
+        <EntityContainer Name="ClubsModelStoreContainer">
           <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClubCategorias" EntityType="Self.ClubCategorias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
@@ -268,7 +268,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ClubsModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ClubsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categorias">
           <Key>
             <PropertyRef Name="CategoriaID" />
@@ -498,7 +498,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ClubsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ClubsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categorias" EntityType="Self.Categorias" />
           <EntitySet Name="ClubCategorias" EntityType="Self.ClubCategorias" />
           <EntitySet Name="Clubs" EntityType="Self.Clubs" />
@@ -551,9 +551,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ClubsModel1StoreContainer" CdmEntityContainer="ClubsEntities">
+        <EntityContainerMapping StorageEntityContainer="ClubsModelStoreContainer" CdmEntityContainer="ClubsEntities1">
           <EntitySetMapping Name="Categorias">
-            <EntityTypeMapping TypeName="ClubsModel1.Categorias">
+            <EntityTypeMapping TypeName="ClubsModel.Categorias">
               <MappingFragment StoreEntitySet="Categorias">
                 <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -561,7 +561,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClubCategorias">
-            <EntityTypeMapping TypeName="ClubsModel1.ClubCategorias">
+            <EntityTypeMapping TypeName="ClubsModel.ClubCategorias">
               <MappingFragment StoreEntitySet="ClubCategorias">
                 <ScalarProperty Name="ClubCategoriasID" ColumnName="ClubCategoriasID" />
                 <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -570,7 +570,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clubs">
-            <EntityTypeMapping TypeName="ClubsModel1.Clubs">
+            <EntityTypeMapping TypeName="ClubsModel.Clubs">
               <MappingFragment StoreEntitySet="Clubs">
                 <ScalarProperty Name="ClubID" ColumnName="ClubID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -580,7 +580,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Contacto">
-            <EntityTypeMapping TypeName="ClubsModel1.Contacto">
+            <EntityTypeMapping TypeName="ClubsModel.Contacto">
               <MappingFragment StoreEntitySet="Contacto">
                 <ScalarProperty Name="ContactoID" ColumnName="ContactoID" />
                 <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -590,7 +590,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Continentes">
-            <EntityTypeMapping TypeName="ClubsModel1.Continentes">
+            <EntityTypeMapping TypeName="ClubsModel.Continentes">
               <MappingFragment StoreEntitySet="Continentes">
                 <ScalarProperty Name="ContinenteID" ColumnName="ContinenteID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -598,7 +598,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Galeria">
-            <EntityTypeMapping TypeName="ClubsModel1.Galeria">
+            <EntityTypeMapping TypeName="ClubsModel.Galeria">
               <MappingFragment StoreEntitySet="Galeria">
                 <ScalarProperty Name="ClubID" ColumnName="ClubID" />
                 <ScalarProperty Name="Foto" ColumnName="Foto" />
@@ -606,7 +606,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MediaVisual">
-            <EntityTypeMapping TypeName="ClubsModel1.MediaVisual">
+            <EntityTypeMapping TypeName="ClubsModel.MediaVisual">
               <MappingFragment StoreEntitySet="MediaVisual">
                 <ScalarProperty Name="ClubID" ColumnName="ClubID" />
                 <ScalarProperty Name="Logo" ColumnName="Logo" />
@@ -616,7 +616,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pais">
-            <EntityTypeMapping TypeName="ClubsModel1.Pais">
+            <EntityTypeMapping TypeName="ClubsModel.Pais">
               <MappingFragment StoreEntitySet="Pais">
                 <ScalarProperty Name="PaisID" ColumnName="PaisID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -625,7 +625,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reseña">
-            <EntityTypeMapping TypeName="ClubsModel1.Reseña">
+            <EntityTypeMapping TypeName="ClubsModel.Reseña">
               <MappingFragment StoreEntitySet="Reseña">
                 <ScalarProperty Name="ReseñaID" ColumnName="ReseñaID" />
                 <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -636,7 +636,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ubicacion">
-            <EntityTypeMapping TypeName="ClubsModel1.Ubicacion">
+            <EntityTypeMapping TypeName="ClubsModel.Ubicacion">
               <MappingFragment StoreEntitySet="Ubicacion">
                 <ScalarProperty Name="UbicacionID" ColumnName="UbicacionID" />
                 <ScalarProperty Name="ClubID" ColumnName="ClubID" />

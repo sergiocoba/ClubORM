@@ -18,8 +18,9 @@ namespace PracticaClubsORM
         FrmClubs FrmClubs;
         FrmCategoria fmcategoria;
         FrmPaises FrmPaises;
+        FrmGaleria frmGaleria;
 
-        private ClubsEntities10 clubsBd { get; set; } = new ClubsEntities10();
+        private ClubsEntities1 clubsBd { get; set; } = new ClubsEntities1();
         public FrmMain()
         {
             InitializeComponent();
@@ -133,6 +134,19 @@ namespace PracticaClubsORM
             }
             FrmPaises.Activate();
 
+        }
+
+        private void galeriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String xnom = "Galeria";
+            if (!(ja_esta_obert(xnom)))
+            {
+                frmGaleria = new FrmGaleria(clubsBd);
+                frmGaleria.Name = xnom;
+                frmGaleria.MdiParent = this;
+                frmGaleria.Show();
+            }
+            frmGaleria.Activate();
         }
     }
 }
