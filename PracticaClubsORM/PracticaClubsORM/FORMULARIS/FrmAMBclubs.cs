@@ -175,6 +175,8 @@ namespace PracticaClubsORM.FORMULARIS
                 m.ClubID = e.ClubID;
                 m.Logo = base64Image;
 
+                
+
                 clubbd.Contacto.Add(c);
                 clubbd.Ubicacion.Add(u);
                 clubbd.MediaVisual.Add(m);

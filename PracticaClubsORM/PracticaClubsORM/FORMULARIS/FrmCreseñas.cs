@@ -24,7 +24,6 @@ namespace PracticaClubsORM.FORMULARIS
         private void getDadesDGV()
         {
             var qryReseñas = from r in clubbd.Reseña
-                            //where r.ClubID == (int)cbClubs.SelectedValue
                            select new
                            {
                                 Club = r.Clubs.Nombre,
@@ -35,7 +34,6 @@ namespace PracticaClubsORM.FORMULARIS
 
             var reseñaList = qryReseñas.ToList();
 
-            // Asigna los datos al DataGridView
             dgvReseñas.DataSource = reseñaList;
         }
 
@@ -64,8 +62,32 @@ namespace PracticaClubsORM.FORMULARIS
 
         private void cbClubs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            getDadesDGV();
+            chBTodas.Checked = false;
+            if(cbClubs.SelectedValue!= null)
+            {
+                getDadesClub();
+            }
 
+        }
+
+        private void getDadesClub()
+        {
+            var qryReseñas = from r in clubbd.Reseña
+                             where r.ClubID == (int)cbClubs.SelectedValue
+                             select new
+                             {
+                                 Club = r.Clubs.Nombre,
+                                 Usuario = r.Usuario,
+                                 Estrellas = r.Valoracion,
+                                 Descripción = r.Descripcion,
+                             };
+
+            dgvReseñas.DataSource = qryReseñas.ToList();
+        }
+
+        private void chBTodas_CheckedChanged(object sender, EventArgs e)
+        {
+            getDadesDGV();
         }
     }
 }
