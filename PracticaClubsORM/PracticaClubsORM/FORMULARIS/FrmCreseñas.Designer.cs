@@ -1,0 +1,97 @@
+﻿namespace PracticaClubsORM.FORMULARIS
+{
+    partial class FrmCreseñas
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgvReseñas = new System.Windows.Forms.DataGridView();
+            this.cbClubs = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReseñas)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvReseñas
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.dgvReseñas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvReseñas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReseñas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvReseñas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvReseñas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvReseñas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReseñas.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvReseñas.Location = new System.Drawing.Point(11, 74);
+            this.dgvReseñas.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvReseñas.Name = "dgvReseñas";
+            this.dgvReseñas.RowHeadersVisible = false;
+            this.dgvReseñas.RowHeadersWidth = 51;
+            this.dgvReseñas.RowTemplate.Height = 24;
+            this.dgvReseñas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReseñas.Size = new System.Drawing.Size(586, 433);
+            this.dgvReseñas.TabIndex = 14;
+            // 
+            // cbClubs
+            // 
+            this.cbClubs.FormattingEnabled = true;
+            this.cbClubs.Location = new System.Drawing.Point(11, 48);
+            this.cbClubs.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbClubs.Name = "cbClubs";
+            this.cbClubs.Size = new System.Drawing.Size(381, 21);
+            this.cbClubs.TabIndex = 15;
+            this.cbClubs.SelectedIndexChanged += new System.EventHandler(this.cbClubs_SelectedIndexChanged);
+            // 
+            // FrmCreseñas
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(612, 518);
+            this.Controls.Add(this.cbClubs);
+            this.Controls.Add(this.dgvReseñas);
+            this.Name = "FrmCreseñas";
+            this.Text = "FrmCreseñas";
+            this.Load += new System.EventHandler(this.FrmCreseñas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReseñas)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataGridView dgvReseñas;
+        private System.Windows.Forms.ComboBox cbClubs;
+    }
+}

@@ -15,6 +15,7 @@ namespace PracticaClubsORM.FORMULARIS
     {
         private ClubsEntities3 clubbd { get; set; } = new ClubsEntities3();
         int calificacion = 0;
+        FrmCreseñas creseña;
         public FrmReseña(ClubsEntities3 c)
         {
             InitializeComponent();
@@ -189,6 +190,13 @@ namespace PracticaClubsORM.FORMULARIS
                 }
 
             }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            creseña = new FrmCreseñas(clubbd);
+            creseña.ShowDialog();
 
         }
     }
