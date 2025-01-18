@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ClubsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ClubsModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Categorias">
     <Key>
       <PropertyRef Name="CategoriaID" />
@@ -42,19 +42,20 @@
   </EntityType>
   <EntityType Name="Galeria">
     <Key>
-      <PropertyRef Name="ClubID" />
+      <PropertyRef Name="FotoId" />
     </Key>
+    <Property Name="FotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ClubID" Type="int" Nullable="false" />
-    <Property Name="Foto" Type="text" />
+    <Property Name="Foto" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="MediaVisual">
     <Key>
       <PropertyRef Name="ClubID" />
     </Key>
     <Property Name="ClubID" Type="int" Nullable="false" />
-    <Property Name="Logo" Type="text" />
-    <Property Name="MiniaturaWeb" Type="text" />
-    <Property Name="GoogleMapsURL" Type="text" />
+    <Property Name="Logo" Type="varchar(max)" />
+    <Property Name="MiniaturaWeb" Type="varchar(max)" />
+    <Property Name="GoogleMapsURL" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Pais">
     <Key>
@@ -72,7 +73,7 @@
     <Property Name="ClubID" Type="int" />
     <Property Name="Usuario" Type="nvarchar" MaxLength="255" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="255" />
-    <Property Name="Valoracion" Type="tinyint" />
+    <Property Name="Valoracion" Type="int" />
   </EntityType>
   <EntityType Name="Ubicacion">
     <Key>
@@ -131,7 +132,7 @@
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Galeria" Type="Self.Galeria" Multiplicity="0..1" />
+    <End Role="Galeria" Type="Self.Galeria" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Clubs">
         <PropertyRef Name="ClubID" />
@@ -211,7 +212,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ClubsModelStoreContainer">
+  <EntityContainer Name="ClubsModel1StoreContainer">
     <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClubCategorias" EntityType="Self.ClubCategorias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />

@@ -16,8 +16,8 @@ namespace PracticaClubsORM.FORMULARIS
     {
         FrmAMBclubs aMBclubs= null;
         //private ClubsEntities7 clubsBD {  get; set; } = new ClubsEntities7();
-        private ClubsEntities3 clubsBD { get; set; } = new ClubsEntities3();
-        public FrmClubs(ClubsEntities3 xclub)
+        private ClubsEntities4 clubsBD { get; set; } = new ClubsEntities4();
+        public FrmClubs(ClubsEntities4 xclub)
         {
             InitializeComponent();
             clubsBD = xclub;
@@ -53,10 +53,14 @@ namespace PracticaClubsORM.FORMULARIS
                            {
                                ClubID = c.ClubID,
                                Nombre = c.Clubs.Nombre,
+                               correo = c.Email,
                                telefono = c.Telefono,
                                Fundacion = c.Clubs.Fundacion,
-                               Contacto = c.Telefono,
                                Ciudad = u.Ciudad,
+                               direccion = u.Direccion,
+                               codiP = u.CodigoPostal,
+                               paisid= u.PaisID,
+                               paisNom = u.Pais,
                                LogoBase64 = m.Logo // Asegúrate de que esto esté almacenado en la base de datos como Base64
                            };
 
@@ -106,6 +110,7 @@ namespace PracticaClubsORM.FORMULARIS
         private void iniDgrid()
         {
             dgvClubs.Columns["ClubID"].Visible = false;
+            dgvClubs.Columns["correo"].Visible = false;
             dgvClubs.Columns["telefono"].Visible = false;
             dgvClubs.Columns["LogoBase64"].Visible = false;
         }
@@ -160,14 +165,17 @@ namespace PracticaClubsORM.FORMULARIS
             aMBclubs = new FrmAMBclubs('M', clubsBD);
             aMBclubs.IdClub = dgvClubs.SelectedRows[0].Cells["ClubID"].Value.ToString().Trim();
             aMBclubs.NomClub = dgvClubs.SelectedRows[0].Cells["Nombre"].Value.ToString().Trim();
-            
             aMBclubs.telefono = dgvClubs.SelectedRows[0].Cells["telefono"].Value.ToString().Trim();
+            aMBclubs.correo = dgvClubs.SelectedRows[0].Cells["correo"].Value.ToString().Trim();
+            aMBclubs.anyFund = dgvClubs.SelectedRows[0].Cells["Fundacion"].Value.ToString().Trim();
+            aMBclubs.ciudadNom = dgvClubs.SelectedRows[0].Cells["Ciudad"].Value.ToString().Trim();
+            aMBclubs.direccion = dgvClubs.SelectedRows[0].Cells["direccion"].Value.ToString().Trim();
+            aMBclubs.codiPot= dgvClubs.SelectedRows[0].Cells["codiP"].Value.ToString().Trim();
+            aMBclubs.idPais= (Int32)dgvClubs.SelectedRows[0].Cells["paisid"].Value;
 
-            //FrmAMBPaises.nomPais = dgvPais.SelectedRows[0].Cells["nomPais"].Value.ToString().Trim();
-            //FrmAMBPaises.idContinente = (Int32)dgvPais.SelectedRows[0].Cells["id"].Value;
+            aMBclubs.ShowDialog();
 
-            //aMBclubs.ShowDialog();
-            //getDadesSenseFiltre();
+            getDadesSenseFiltre();
         }
     }
 }

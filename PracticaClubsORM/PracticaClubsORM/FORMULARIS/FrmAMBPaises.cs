@@ -13,14 +13,14 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmAMBPaises : Form
     {
-        private ClubsEntities3 clubsd { get; set; } = new ClubsEntities3();
+        private ClubsEntities4 clubsd { get; set; } = new ClubsEntities4();
 
         //variables
         Char op { get; set; } = '\0';
         public string nomPais { get; set; } = "";
         public int idContinente { get; set; }
         public int idPais { get; set; }
-        public FrmAMBPaises(char opcio, ClubsEntities3 bd)
+        public FrmAMBPaises(char opcio, ClubsEntities4 bd)
         {
             InitializeComponent();
             clubsd = bd;
@@ -145,7 +145,7 @@ namespace PracticaClubsORM.FORMULARIS
             Boolean xb = false;
             Pais p = new Pais();
 
-            if (vDades())
+            if (vDades()) 
             {
                 p.Nombre = tbNomPais.Text.Trim();
                 p.ContinenteID = (int)cbContinente.SelectedValue;

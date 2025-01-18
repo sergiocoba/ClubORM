@@ -13,10 +13,10 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmReseña : Form
     {
-        private ClubsEntities3 clubbd { get; set; } = new ClubsEntities3();
+        private ClubsEntities4 clubbd { get; set; } = new ClubsEntities4();
         int calificacion = 0;
         FrmCreseñas creseña;
-        public FrmReseña(ClubsEntities3 c)
+        public FrmReseña(ClubsEntities4 c)
         {
             InitializeComponent();
             clubbd = c;

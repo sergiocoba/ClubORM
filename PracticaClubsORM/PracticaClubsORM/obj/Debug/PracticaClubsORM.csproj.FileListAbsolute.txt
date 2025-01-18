@@ -166,3 +166,6 @@ C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\D
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmGaleria.resources
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmReseña.resources
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmCreseñas.resources
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmCreseñas.resources
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmGaleria.resources
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmReseña.resources

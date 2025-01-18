@@ -17,7 +17,7 @@ namespace PracticaClubsORM.FORMULARIS
     public partial class FrmAMBclubs : Form
     {
         //private ClubsEntities7 clubbd { get; set; } = new ClubsEntities7();
-        private ClubsEntities3 clubbd { get; set; } = new ClubsEntities3();
+        private ClubsEntities4 clubbd { get; set; } = new ClubsEntities4();
 
         //variables
         Boolean bFirst = true;
@@ -28,16 +28,19 @@ namespace PracticaClubsORM.FORMULARIS
         public String NomClub { get; set; } = "";
         public String telefono { get; set; } = "";
         public String correo { get; set; } = "";
+        public String anyFund { get; set; } = "";
         public String ciudadNom { get; set; } = "";
         public String direccion { get; set; } = "";
+        public String codiPot { get; set; } = "";
         public String pais { get; set; } = "";
+        public String paginaWeb { get; set; } = "";
         public int idPais { get; set; }
-        
-        public FrmAMBclubs(char opcio, ClubsEntities3 bd)
+
+        public FrmAMBclubs(char opcio, ClubsEntities4 bd)
         {
             InitializeComponent();
             clubbd = bd;
-            op = opcio; 
+            op = opcio;
         }
 
         private void FrmAMBclubs_Load(object sender, EventArgs e)
@@ -49,14 +52,17 @@ namespace PracticaClubsORM.FORMULARIS
                 case 'A': this.Text = "Alta d'un nou club"; break;
 
                 case 'M': this.Text = "Modificar el clubs"; break;
-                
+
             }
 
             tbNom.Text = NomClub;
             tbTelefono.Text = telefono;
             tbCorreo.Text = correo;
+            tbFundacion.Text = anyFund;
             tbCiudad.Text = ciudadNom;
             tbDireccion.Text = direccion;
+            tbCodigoPostal.Text = codiPot;
+
             if (op == 'A')
             {
                 cbPais.SelectedIndex = 0;
@@ -68,7 +74,7 @@ namespace PracticaClubsORM.FORMULARIS
 
         }
 
-        
+
         private void omplirComboPaises()
         {
             var qryPaises = from e in clubbd.Pais
@@ -87,7 +93,7 @@ namespace PracticaClubsORM.FORMULARIS
                 cbPais.SelectedIndex = 0;
             }
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -125,7 +131,7 @@ namespace PracticaClubsORM.FORMULARIS
                 switch (op)
                 {
                     case 'A': xb = addClub(); break;
-                    case 'M': xb = modClub(); break;
+                    case 'M': xb = ModClub(); break;
                 }
                 if (xb)
                 {
@@ -138,7 +144,7 @@ namespace PracticaClubsORM.FORMULARIS
         {
             Boolean xb = true;
 
-            if ((tbNom.Text.Trim().Length == 0) || (tbTelefono.Text.Trim().Length == 0) || (tbCorreo.Text.Trim().Length ==0)
+            if ((tbNom.Text.Trim().Length == 0) || (tbTelefono.Text.Trim().Length == 0) || (tbCorreo.Text.Trim().Length == 0)
                 || (tbCiudad.Text.Trim().Length == 0) || (tbDireccion.Text.Trim().Length == 0) || (cbPais.SelectedItem == null))
             {
                 MessageBox.Show("No es poden deixar dades en blanc", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -163,7 +169,7 @@ namespace PracticaClubsORM.FORMULARIS
                 clubbd.Clubs.Add(e);
                 if (!ferCanvis()) return xb;
 
-                
+
                 c.ClubID = e.ClubID;
                 c.Telefono = tbTelefono.Text.Trim();
                 c.Email = tbCorreo.Text.Trim();
@@ -177,11 +183,11 @@ namespace PracticaClubsORM.FORMULARIS
                 m.ClubID = e.ClubID;
                 m.Logo = base64Image;
 
-                if(tbWeb != null) 
-                {
-                    m.MiniaturaWeb = obtenirMiniaturaWeb(tbWeb.Text).GetAwaiter().GetResult();
-                }
-            
+                //if (tbWeb != null)
+                //{
+                //    m.MiniaturaWeb = obtenirMiniaturaWeb(tbWeb.Text).GetAwaiter().GetResult();
+                //}
+
 
                 clubbd.Contacto.Add(c);
                 clubbd.Ubicacion.Add(u);
@@ -203,27 +209,81 @@ namespace PracticaClubsORM.FORMULARIS
             return xb;
         }
 
-        static async Task<string> obtenirMiniaturaWeb(string url)
+
+        private bool ModClub()
         {
-            
-            var browser = Puppeteer.LaunchAsync(new LaunchOptions { Headless = true }).GetAwaiter().GetResult();
-            var page = browser.NewPageAsync().GetAwaiter().GetResult();
+            Boolean xb = false;
+            Clubs e = clubbd.Clubs.Find(int.Parse(IdClub));
 
-            page.GoToAsync(url).GetAwaiter().GetResult();
-
-            var screenshotStream = page.ScreenshotStreamAsync(new ScreenshotOptions
+            if (e != null) 
             {
-                FullPage = false,
-                Type = ScreenshotType.Png
-            }).GetAwaiter().GetResult();
 
-            var memoryStream = new MemoryStream();
-            screenshotStream.CopyTo(memoryStream);
-            string base64Image = Convert.ToBase64String(memoryStream.ToArray());
+                e.Nombre = tbNom.Text.Trim();
+                e.Fundacion = int.Parse(tbFundacion.Text.Trim());
 
-            return base64Image;
 
-        }
+                Contacto c = clubbd.Contacto.Find(e.ClubID);
+                if (c != null)
+                {
+                    c.Telefono = tbTelefono.Text.Trim();
+                    c.Email = tbCorreo.Text.Trim();
+                }
+
+                Ubicacion u = clubbd.Ubicacion.Find(e.ClubID);
+                if (u != null)
+                {
+                    u.Direccion = tbDireccion.Text.Trim();
+                    u.Ciudad = tbCiudad.Text.Trim();
+                    u.CodigoPostal = tbCodigoPostal.Text.Trim();
+                    u.PaisID = (int)cbPais.SelectedValue;
+                }
+
+                MediaVisual m = clubbd.MediaVisual.Find(e.ClubID);
+                if (m != null)
+                {
+                    m.Logo = base64Image;
+                    if (!string.IsNullOrEmpty(tbWeb.Text))
+                    {
+                        //m.MiniaturaWeb = obtenirMiniaturaWeb(tbWeb.Text).GetAwaiter().GetResult();
+                    }
+                }
+
+                if (xb = ferCanvis())
+                {
+                    IdClub = e.ClubID.ToString();
+                    NomClub = e.Nombre;
+                }
+                else
+                {
+                    IdClub = "";
+                    NomClub = "";
+                }
+                
+            }
+            return xb;
+        } 
+
+        //static async Task<string> obtenirMiniaturaWeb(string url)
+        //{
+            
+        //    var browser = Puppeteer.LaunchAsync(new LaunchOptions { Headless = true }).GetAwaiter().GetResult();
+        //    var page = browser.NewPageAsync().GetAwaiter().GetResult();
+
+        //    page.GoToAsync(url).GetAwaiter().GetResult();
+
+        //    var screenshotStream = page.ScreenshotStreamAsync(new ScreenshotOptions
+        //    {
+        //        FullPage = false,
+        //        Type = ScreenshotType.Png
+        //    }).GetAwaiter().GetResult();
+
+        //    var memoryStream = new MemoryStream();
+        //    screenshotStream.CopyTo(memoryStream);
+        //    string base64Image = Convert.ToBase64String(memoryStream.ToArray());
+
+        //    return base64Image;
+
+        //}
 
         private Boolean ferCanvis()
         {
@@ -249,11 +309,6 @@ namespace PracticaClubsORM.FORMULARIS
             return xb;
         }
 
-
-        private bool modClub()
-        {
-            throw new NotImplementedException();
-        }
 
   
     }

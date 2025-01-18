@@ -21,7 +21,7 @@ namespace PracticaClubsORM
         FrmGaleria frmGaleria;
         FrmReseña frmReseña;
 
-        private ClubsEntities3 clubsBd { get; set; } = new ClubsEntities3();
+        private ClubsEntities4 clubsBd { get; set; } = new ClubsEntities4();
         public FrmMain()
         {
             InitializeComponent();

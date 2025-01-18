@@ -12,9 +12,9 @@ namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmCreseñas : Form
     {
-        private ClubsEntities3 clubbd { get; set; } = new ClubsEntities3();
+        private ClubsEntities4 clubbd { get; set; } = new ClubsEntities4();
 
-        public FrmCreseñas(ClubsEntities3 c)
+        public FrmCreseñas(ClubsEntities4 c)
         {
             InitializeComponent();
             clubbd = c;

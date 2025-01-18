@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ClubsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="ClubsModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Categorias">
     <Key>
       <PropertyRef Name="CategoriaID" />
@@ -53,8 +53,9 @@
   </EntityType>
   <EntityType Name="Galeria">
     <Key>
-      <PropertyRef Name="ClubID" />
+      <PropertyRef Name="FotoId" />
     </Key>
+    <Property Name="FotoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ClubID" Type="Int32" Nullable="false" />
     <Property Name="Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Clubs" Relationship="Self.FK__Galeria__ClubID__7D439ABD" FromRole="Galeria" ToRole="Clubs" />
@@ -87,7 +88,7 @@
     <Property Name="ClubID" Type="Int32" />
     <Property Name="Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Valoracion" Type="Byte" />
+    <Property Name="Valoracion" Type="Int32" />
     <NavigationProperty Name="Clubs" Relationship="Self.FK__Reseña__ClubID__797309D9" FromRole="Reseña" ToRole="Clubs" />
   </EntityType>
   <EntityType Name="Ubicacion">
@@ -149,7 +150,7 @@
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Galeria" Type="Self.Galeria" Multiplicity="0..1" />
+    <End Role="Galeria" Type="Self.Galeria" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Clubs">
         <PropertyRef Name="ClubID" />
@@ -229,7 +230,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ClubsEntities10" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="ClubsEntities4" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categorias" EntityType="Self.Categorias" />
     <EntitySet Name="ClubCategorias" EntityType="Self.ClubCategorias" />
     <EntitySet Name="Clubs" EntityType="Self.Clubs" />

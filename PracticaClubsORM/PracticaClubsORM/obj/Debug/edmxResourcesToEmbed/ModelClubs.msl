@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ClubsModelStoreContainer" CdmEntityContainer="ClubsEntities10">
+  <EntityContainerMapping StorageEntityContainer="ClubsModel1StoreContainer" CdmEntityContainer="ClubsEntities4">
     <EntitySetMapping Name="Categorias">
-      <EntityTypeMapping TypeName="ClubsModel.Categorias">
+      <EntityTypeMapping TypeName="ClubsModel1.Categorias">
         <MappingFragment StoreEntitySet="Categorias">
           <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ClubCategorias">
-      <EntityTypeMapping TypeName="ClubsModel.ClubCategorias">
+      <EntityTypeMapping TypeName="ClubsModel1.ClubCategorias">
         <MappingFragment StoreEntitySet="ClubCategorias">
           <ScalarProperty Name="ClubCategoriasID" ColumnName="ClubCategoriasID" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clubs">
-      <EntityTypeMapping TypeName="ClubsModel.Clubs">
+      <EntityTypeMapping TypeName="ClubsModel1.Clubs">
         <MappingFragment StoreEntitySet="Clubs">
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Contacto">
-      <EntityTypeMapping TypeName="ClubsModel.Contacto">
+      <EntityTypeMapping TypeName="ClubsModel1.Contacto">
         <MappingFragment StoreEntitySet="Contacto">
           <ScalarProperty Name="ContactoID" ColumnName="ContactoID" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -39,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Continentes">
-      <EntityTypeMapping TypeName="ClubsModel.Continentes">
+      <EntityTypeMapping TypeName="ClubsModel1.Continentes">
         <MappingFragment StoreEntitySet="Continentes">
           <ScalarProperty Name="ContinenteID" ColumnName="ContinenteID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -47,15 +47,16 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Galeria">
-      <EntityTypeMapping TypeName="ClubsModel.Galeria">
+      <EntityTypeMapping TypeName="ClubsModel1.Galeria">
         <MappingFragment StoreEntitySet="Galeria">
+          <ScalarProperty Name="FotoId" ColumnName="FotoId" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
           <ScalarProperty Name="Foto" ColumnName="Foto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MediaVisual">
-      <EntityTypeMapping TypeName="ClubsModel.MediaVisual">
+      <EntityTypeMapping TypeName="ClubsModel1.MediaVisual">
         <MappingFragment StoreEntitySet="MediaVisual">
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
           <ScalarProperty Name="Logo" ColumnName="Logo" />
@@ -65,7 +66,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pais">
-      <EntityTypeMapping TypeName="ClubsModel.Pais">
+      <EntityTypeMapping TypeName="ClubsModel1.Pais">
         <MappingFragment StoreEntitySet="Pais">
           <ScalarProperty Name="PaisID" ColumnName="PaisID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -74,7 +75,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Reseña">
-      <EntityTypeMapping TypeName="ClubsModel.Reseña">
+      <EntityTypeMapping TypeName="ClubsModel1.Reseña">
         <MappingFragment StoreEntitySet="Reseña">
           <ScalarProperty Name="ReseñaID" ColumnName="ReseñaID" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
@@ -85,7 +86,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ubicacion">
-      <EntityTypeMapping TypeName="ClubsModel.Ubicacion">
+      <EntityTypeMapping TypeName="ClubsModel1.Ubicacion">
         <MappingFragment StoreEntitySet="Ubicacion">
           <ScalarProperty Name="UbicacionID" ColumnName="UbicacionID" />
           <ScalarProperty Name="ClubID" ColumnName="ClubID" />
