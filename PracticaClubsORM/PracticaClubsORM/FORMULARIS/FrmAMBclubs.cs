@@ -12,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PuppeteerSharp;
+using Microsoft.Web.WebView2;
+using Microsoft.Web.WebView2.WinForms;
+using EO.WebBrowser;
 
 namespace PracticaClubsORM.FORMULARIS
 {
@@ -26,7 +29,10 @@ namespace PracticaClubsORM.FORMULARIS
         WebBrowser webBrowser1 = new WebBrowser();
         Char op { get; set; } = '\0';
         string base64Image;
-        
+        string webImage;
+        private WebView2 webview;
+
+
         public String IdClub { get; set; }
         public String NomClub { get; set; } = "";
         public String telefono { get; set; } = "";
@@ -44,6 +50,13 @@ namespace PracticaClubsORM.FORMULARIS
             InitializeComponent();
             clubbd = bd;
             op = opcio;
+            webview = new WebView2
+            {
+                Width = 1024,
+                Height = 768,
+                Visible = false // Oculto, solo para capturas
+            };
+            this.Controls.Add(webview);
         }
 
         private void FrmAMBclubs_Load(object sender, EventArgs e)
@@ -172,7 +185,6 @@ namespace PracticaClubsORM.FORMULARIS
                 clubbd.Clubs.Add(e);
                 if (!ferCanvis()) return xb;
 
-
                 c.ClubID = e.ClubID;
                 c.Telefono = tbTelefono.Text.Trim();
                 c.Email = tbCorreo.Text.Trim();
@@ -185,19 +197,20 @@ namespace PracticaClubsORM.FORMULARIS
 
                 m.ClubID = e.ClubID;
                 m.Logo = base64Image;
+                
 
-                if (tbWeb != null)
+                if (!string.IsNullOrEmpty(tbWeb.Text))
                 {
-                    webBrowser1.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(WebBrowser_DocumentCompleted);
-                    webBrowser1.Navigate(tbWeb.Text);
+                    
+
+                    CapturarImagen();
+                    m.MiniaturaWeb = webImage;
 
                 }
-
 
                 clubbd.Contacto.Add(c);
                 clubbd.Ubicacion.Add(u);
                 clubbd.MediaVisual.Add(m);
-
 
                 if (ferCanvis())
                 {
@@ -213,28 +226,53 @@ namespace PracticaClubsORM.FORMULARIS
 
             return xb;
         }
-        private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
 
-                TakeScreenshot();
-            
+        private async void CapturarImagen()
+        {
+            string url = tbWeb.Text.Trim();
+
+            if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            {
+                MessageBox.Show("Introduce una URL válida.");
+                return;
+            }
+
+            try
+            {
+                // Navegar a la URL
+                
+                webview.Source = new Uri(url);
+                await webview.EnsureCoreWebView2Async();
+
+                // Esperar a que cargue
+                await Task.Delay(3000);
+
+                // Capturar la pantalla
+                using (Bitmap bitmap = new Bitmap(webview.Width, webview.Height))
+                {
+                    webview.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+
+                    // Convertir a Base64
+                    webImage = ConvertToBase64(bitmap);
+
+                    // Mostrar la imagen
+                    //pictureBoxPreview.Image = Base64ToImage(base64Image);
+
+                    // Opcional: Mostrar el Base64 en consola
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al capturar la página: {ex.Message}");
+            }
         }
-        private void TakeScreenshot()
+        private string ConvertToBase64(Image image)
         {
-            // Ajustar el tamaño del WebBrowser al tamaño de la página
-            webBrowser1.Width = webBrowser1.Document.Body.ScrollRectangle.Width;
-            webBrowser1.Height = webBrowser1.Document.Body.ScrollRectangle.Height;
-
-            // Crear una imagen para almacenar la captura
-            Bitmap bitmap = new Bitmap(webBrowser1.Width, webBrowser1.Height);
-            // Dibujar el contenido del WebBrowser en la imagen
-            webBrowser1.DrawToBitmap(bitmap, new Rectangle(0, 0, webBrowser1.Width, webBrowser1.Height));
-            // Guardar la imagen como archivo
-            bitmap.Save("captura.png");
-            MessageBox.Show("Captura guardada como captura.png");
-
-            // Liberar recursos
-            bitmap.Dispose();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return Convert.ToBase64String(ms.ToArray());
+            }
         }
         private bool ModClub()
         {

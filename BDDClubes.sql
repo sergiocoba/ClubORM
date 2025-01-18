@@ -99,7 +99,7 @@ VALUES
 ('México', 2),
 ('Australia', 4);
 
-SELECT * FROM Ubicacion
+
 -- INSERT para Categorias
 INSERT INTO Categorias (Nombre)
 VALUES ('Fútbol'), ('Rugby'), ('Baloncesto');
