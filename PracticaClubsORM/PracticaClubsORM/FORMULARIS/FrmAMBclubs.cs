@@ -12,18 +12,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PuppeteerSharp;
+
 namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmAMBclubs : Form
     {
-        //private ClubsEntities7 clubbd { get; set; } = new ClubsEntities7();
+        
         private ClubsEntities4 clubbd { get; set; } = new ClubsEntities4();
+        //private ClubsEntities4 clubbd { get; set; } = new ClubsEntities4();
 
         //variables
         Boolean bFirst = true;
+        WebBrowser webBrowser1 = new WebBrowser();
         Char op { get; set; } = '\0';
         string base64Image;
-
+        
         public String IdClub { get; set; }
         public String NomClub { get; set; } = "";
         public String telefono { get; set; } = "";
@@ -183,10 +186,12 @@ namespace PracticaClubsORM.FORMULARIS
                 m.ClubID = e.ClubID;
                 m.Logo = base64Image;
 
-                //if (tbWeb != null)
-                //{
-                //    m.MiniaturaWeb = obtenirMiniaturaWeb(tbWeb.Text).GetAwaiter().GetResult();
-                //}
+                if (tbWeb != null)
+                {
+                    webBrowser1.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(WebBrowser_DocumentCompleted);
+                    webBrowser1.Navigate(tbWeb.Text);
+
+                }
 
 
                 clubbd.Contacto.Add(c);
@@ -208,8 +213,29 @@ namespace PracticaClubsORM.FORMULARIS
 
             return xb;
         }
+        private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
 
+                TakeScreenshot();
+            
+        }
+        private void TakeScreenshot()
+        {
+            // Ajustar el tamaño del WebBrowser al tamaño de la página
+            webBrowser1.Width = webBrowser1.Document.Body.ScrollRectangle.Width;
+            webBrowser1.Height = webBrowser1.Document.Body.ScrollRectangle.Height;
 
+            // Crear una imagen para almacenar la captura
+            Bitmap bitmap = new Bitmap(webBrowser1.Width, webBrowser1.Height);
+            // Dibujar el contenido del WebBrowser en la imagen
+            webBrowser1.DrawToBitmap(bitmap, new Rectangle(0, 0, webBrowser1.Width, webBrowser1.Height));
+            // Guardar la imagen como archivo
+            bitmap.Save("captura.png");
+            MessageBox.Show("Captura guardada como captura.png");
+
+            // Liberar recursos
+            bitmap.Dispose();
+        }
         private bool ModClub()
         {
             Boolean xb = false;
@@ -244,7 +270,6 @@ namespace PracticaClubsORM.FORMULARIS
                     m.Logo = base64Image;
                     if (!string.IsNullOrEmpty(tbWeb.Text))
                     {
-                        //m.MiniaturaWeb = obtenirMiniaturaWeb(tbWeb.Text).GetAwaiter().GetResult();
                     }
                 }
 
@@ -261,29 +286,9 @@ namespace PracticaClubsORM.FORMULARIS
                 
             }
             return xb;
-        } 
+        }
 
-        //static async Task<string> obtenirMiniaturaWeb(string url)
-        //{
-            
-        //    var browser = Puppeteer.LaunchAsync(new LaunchOptions { Headless = true }).GetAwaiter().GetResult();
-        //    var page = browser.NewPageAsync().GetAwaiter().GetResult();
-
-        //    page.GoToAsync(url).GetAwaiter().GetResult();
-
-        //    var screenshotStream = page.ScreenshotStreamAsync(new ScreenshotOptions
-        //    {
-        //        FullPage = false,
-        //        Type = ScreenshotType.Png
-        //    }).GetAwaiter().GetResult();
-
-        //    var memoryStream = new MemoryStream();
-        //    screenshotStream.CopyTo(memoryStream);
-        //    string base64Image = Convert.ToBase64String(memoryStream.ToArray());
-
-        //    return base64Image;
-
-        //}
+        
 
         private Boolean ferCanvis()
         {

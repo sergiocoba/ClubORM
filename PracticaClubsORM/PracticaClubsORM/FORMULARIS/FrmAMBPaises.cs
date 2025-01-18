@@ -15,7 +15,6 @@ namespace PracticaClubsORM.FORMULARIS
     {
         private ClubsEntities4 clubsd { get; set; } = new ClubsEntities4();
 
-        //variables
         Char op { get; set; } = '\0';
         public string nomPais { get; set; } = "";
         public int idContinente { get; set; }

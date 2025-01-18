@@ -500,7 +500,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ClubsEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ClubsEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categorias" EntityType="Self.Categorias" />
           <EntitySet Name="ClubCategorias" EntityType="Self.ClubCategorias" />
           <EntitySet Name="Clubs" EntityType="Self.Clubs" />
@@ -553,7 +553,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ClubsModelStoreContainer" CdmEntityContainer="ClubsEntities3">
+        <EntityContainerMapping StorageEntityContainer="ClubsModelStoreContainer" CdmEntityContainer="ClubsEntities4">
           <EntitySetMapping Name="Categorias">
             <EntityTypeMapping TypeName="ClubsModel.Categorias">
               <MappingFragment StoreEntitySet="Categorias">
