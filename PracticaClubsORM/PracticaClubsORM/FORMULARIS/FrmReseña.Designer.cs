@@ -145,6 +145,7 @@
             this.cbClubs.Name = "cbClubs";
             this.cbClubs.Size = new System.Drawing.Size(474, 21);
             this.cbClubs.TabIndex = 8;
+            this.cbClubs.SelectedIndexChanged += new System.EventHandler(this.cbClubs_SelectedIndexChanged);
             // 
             // button1
             // 

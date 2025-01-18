@@ -199,5 +199,10 @@ namespace PracticaClubsORM.FORMULARIS
             creseña.ShowDialog();
 
         }
+
+        private void cbClubs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            reiniciarMenu();
+        }
     }
 }

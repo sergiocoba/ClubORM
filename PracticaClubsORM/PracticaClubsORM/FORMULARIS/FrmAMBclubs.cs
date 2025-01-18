@@ -6,10 +6,12 @@ using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PuppeteerSharp;
 namespace PracticaClubsORM.FORMULARIS
 {
     public partial class FrmAMBclubs : Form
@@ -175,7 +177,11 @@ namespace PracticaClubsORM.FORMULARIS
                 m.ClubID = e.ClubID;
                 m.Logo = base64Image;
 
-                
+                if(tbWeb != null) 
+                {
+                    m.MiniaturaWeb = obtenirMiniaturaWeb(tbWeb.Text).GetAwaiter().GetResult();
+                }
+            
 
                 clubbd.Contacto.Add(c);
                 clubbd.Ubicacion.Add(u);
@@ -195,6 +201,28 @@ namespace PracticaClubsORM.FORMULARIS
             }
 
             return xb;
+        }
+
+        static async Task<string> obtenirMiniaturaWeb(string url)
+        {
+            
+            var browser = Puppeteer.LaunchAsync(new LaunchOptions { Headless = true }).GetAwaiter().GetResult();
+            var page = browser.NewPageAsync().GetAwaiter().GetResult();
+
+            page.GoToAsync(url).GetAwaiter().GetResult();
+
+            var screenshotStream = page.ScreenshotStreamAsync(new ScreenshotOptions
+            {
+                FullPage = false,
+                Type = ScreenshotType.Png
+            }).GetAwaiter().GetResult();
+
+            var memoryStream = new MemoryStream();
+            screenshotStream.CopyTo(memoryStream);
+            string base64Image = Convert.ToBase64String(memoryStream.ToArray());
+
+            return base64Image;
+
         }
 
         private Boolean ferCanvis()
