@@ -46,21 +46,23 @@ namespace PracticaClubsORM.FORMULARIS
 
         private void getDadesSenseFiltre()
         {
-            var qryClubs = from c in clubsBD.Contacto
-                           join u in clubsBD.Ubicacion on c.ClubID equals u.ClubID
-                           join m in clubsBD.MediaVisual on c.ClubID equals m.ClubID
+            var qryClubs = from cl in clubsBD.Clubs
+                           join c in clubsBD.Contacto on cl.ClubID equals c.ClubID
+                           join u in clubsBD.Ubicacion on cl.ClubID equals u.ClubID
+                           join m in clubsBD.MediaVisual on cl.ClubID equals m.ClubID
                            select new
                            {
-                               ClubID = c.ClubID,
-                               Nombre = c.Clubs.Nombre,
+                               ClubID = cl.ClubID,
+                               Nombre = cl.Nombre,
+                               contacID  = c.ContactoID,
                                correo = c.Email,
                                telefono = c.Telefono,
-                               Fundacion = c.Clubs.Fundacion,
+                               ubicacionID = u.UbicacionID,
+                               Fundacion = cl.Fundacion,
                                Ciudad = u.Ciudad,
                                direccion = u.Direccion,
                                codiP = u.CodigoPostal,
                                paisid= u.PaisID,
-                               paisNom = u.Pais,
                                LogoBase64 = m.Logo // Asegúrate de que esto esté almacenado en la base de datos como Base64
                            };
 
@@ -110,6 +112,10 @@ namespace PracticaClubsORM.FORMULARIS
         private void iniDgrid()
         {
             dgvClubs.Columns["ClubID"].Visible = false;
+            dgvClubs.Columns["contacID"].Visible = false ;
+            dgvClubs.Columns["ubicacionID"].Visible = false;
+            dgvClubs.Columns["paisid"].Visible = false;
+
             dgvClubs.Columns["correo"].Visible = false;
             dgvClubs.Columns["telefono"].Visible = false;
             dgvClubs.Columns["LogoBase64"].Visible = false;
@@ -137,13 +143,14 @@ namespace PracticaClubsORM.FORMULARIS
             aMBclubs = new FrmAMBclubs('A',clubsBD);
             aMBclubs.ShowDialog();
             getDadesSenseFiltre();
-            if (aMBclubs.NomClub != "")
+            if (aMBclubs.IdClub != "")
             {
-                seleccionarFila(aMBclubs.NomClub);
+                seleccionarFila(aMBclubs.IdClub);
             }
+            aMBclubs= null;
         }
 
-        private void seleccionarFila(string name)
+        private void seleccionarFila(string id)
         {
             int i = -1;
             Boolean xbTrobat = false;
@@ -151,13 +158,14 @@ namespace PracticaClubsORM.FORMULARIS
             while (!xbTrobat && i < dgvClubs.Rows.Count)
             {
                 i++;
-                xbTrobat = (dgvClubs.Rows[i].Cells["Nombre"].Value.ToString() == name);
+                xbTrobat = (dgvClubs.Rows[i].Cells["ClubID"].Value.ToString() == id);
             }
             if (dgvClubs.Rows.Count > 0)
             {
                 dgvClubs.Rows[i].Selected = true;
-                dgvClubs.FirstDisplayedScrollingRowIndex = i;
+                dgvClubs.FirstDisplayedScrollingRowIndex = i; // Desplaça el DataGridView a la fila seleccionada
             }
+
         }
 
         private void dgvClubs_DoubleClick(object sender, EventArgs e)
@@ -171,11 +179,67 @@ namespace PracticaClubsORM.FORMULARIS
             aMBclubs.ciudadNom = dgvClubs.SelectedRows[0].Cells["Ciudad"].Value.ToString().Trim();
             aMBclubs.direccion = dgvClubs.SelectedRows[0].Cells["direccion"].Value.ToString().Trim();
             aMBclubs.codiPot= dgvClubs.SelectedRows[0].Cells["codiP"].Value.ToString().Trim();
+            aMBclubs.codiPot = dgvClubs.SelectedRows[0].Cells["codiP"].Value.ToString().Trim();
+            var logoNull = dgvClubs.SelectedRows[0].Cells["LogoBase64"].Value;
+            if (logoNull != null)
+            {
+                aMBclubs.logo = dgvClubs.SelectedRows[0].Cells["LogoBase64"].Value.ToString().Trim();
+            }
             aMBclubs.idPais= (Int32)dgvClubs.SelectedRows[0].Cells["paisid"].Value;
+            aMBclubs.contactoID = (Int32)dgvClubs.SelectedRows[0].Cells["contacID"].Value;
+            aMBclubs.ubicacionID = (Int32)dgvClubs.SelectedRows[0].Cells["ubicacionID"].Value;
+            
 
+            
             aMBclubs.ShowDialog();
 
             getDadesSenseFiltre();
+            if (aMBclubs.IdClub != "")
+            {
+                seleccionarFila(aMBclubs.IdClub);
+            }
+            aMBclubs = null;
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvClubs.Rows.Count > 0)
+            {
+                aMBclubs = new FrmAMBclubs('B', clubsBD);
+
+                aMBclubs.IdClub = dgvClubs.SelectedRows[0].Cells["ClubID"].Value.ToString().Trim();
+                aMBclubs.NomClub = dgvClubs.SelectedRows[0].Cells["Nombre"].Value.ToString().Trim();
+                aMBclubs.telefono = dgvClubs.SelectedRows[0].Cells["telefono"].Value.ToString().Trim();
+                aMBclubs.correo = dgvClubs.SelectedRows[0].Cells["correo"].Value.ToString().Trim();
+                aMBclubs.anyFund = dgvClubs.SelectedRows[0].Cells["Fundacion"].Value.ToString().Trim();
+                aMBclubs.ciudadNom = dgvClubs.SelectedRows[0].Cells["Ciudad"].Value.ToString().Trim();
+                aMBclubs.direccion = dgvClubs.SelectedRows[0].Cells["direccion"].Value.ToString().Trim();
+                aMBclubs.codiPot = dgvClubs.SelectedRows[0].Cells["codiP"].Value.ToString().Trim();
+                aMBclubs.codiPot = dgvClubs.SelectedRows[0].Cells["codiP"].Value.ToString().Trim();
+
+                var logoNull = dgvClubs.SelectedRows[0].Cells["LogoBase64"].Value;
+                if(logoNull != null)
+                {
+                    aMBclubs.logo = dgvClubs.SelectedRows[0].Cells["LogoBase64"].Value.ToString().Trim();
+                }
+
+                
+                aMBclubs.idPais = (Int32)dgvClubs.SelectedRows[0].Cells["paisid"].Value;
+                aMBclubs.contactoID = (Int32)dgvClubs.SelectedRows[0].Cells["contacID"].Value;
+                aMBclubs.ubicacionID = (Int32)dgvClubs.SelectedRows[0].Cells["ubicacionID"].Value;
+
+
+
+                aMBclubs.ShowDialog();
+
+                getDadesSenseFiltre();
+
+                aMBclubs = null;
+            }
+            else
+            {
+                MessageBox.Show("No has seleccionat cap fila", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

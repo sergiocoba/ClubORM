@@ -184,3 +184,19 @@ C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\D
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.Core.xml
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
 C:\Users\Sergio\Documents\GitHub\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\EO.Base.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\EO.WebBrowser.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\EO.WebEngine.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\EO.Base.xml
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\EO.WebBrowser.xml
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\EO.WebEngine.xml
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\Edgardo Miguel\source\repos\proyectoClubsM6\ClubORM\PracticaClubsORM\PracticaClubsORM\obj\Debug\PracticaClubsORM.FORMULARIS.FrmConsultaClubs.resources

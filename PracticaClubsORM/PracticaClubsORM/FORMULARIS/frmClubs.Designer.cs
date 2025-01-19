@@ -32,8 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClubs = new System.Windows.Forms.DataGridView();
             this.pbAdd = new System.Windows.Forms.PictureBox();
+            this.pbDelete = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvClubs
@@ -79,11 +81,24 @@
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             // 
+            // pbDelete
+            // 
+            this.pbDelete.Image = global::PracticaClubsORM.Properties.Resources.cancel50;
+            this.pbDelete.Location = new System.Drawing.Point(666, 482);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.pbDelete.Name = "pbDelete";
+            this.pbDelete.Size = new System.Drawing.Size(67, 62);
+            this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbDelete.TabIndex = 27;
+            this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
+            // 
             // FrmClubs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 551);
+            this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.dgvClubs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -93,6 +108,7 @@
             this.Load += new System.EventHandler(this.FrmClubs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -101,5 +117,6 @@
 
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.DataGridView dgvClubs;
+        private System.Windows.Forms.PictureBox pbDelete;
     }
 }

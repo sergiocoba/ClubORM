@@ -40,6 +40,10 @@
             this.consultesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.galeriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reseñasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.clubsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +56,7 @@
             this.consultesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,22 +64,23 @@
             // 
             this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testConnexioToolStripMenuItem,
+            this.toolStripSeparator3,
             this.sortirToolStripMenuItem});
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
-            this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.generalToolStripMenuItem.Text = "General";
             // 
             // testConnexioToolStripMenuItem
             // 
             this.testConnexioToolStripMenuItem.Name = "testConnexioToolStripMenuItem";
-            this.testConnexioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testConnexioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.testConnexioToolStripMenuItem.Text = "Test Connexio";
             this.testConnexioToolStripMenuItem.Click += new System.EventHandler(this.testConnexioToolStripMenuItem_Click);
             // 
             // sortirToolStripMenuItem
             // 
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
-            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sortirToolStripMenuItem.Text = "Sortir";
             this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
             // 
@@ -83,61 +88,86 @@
             // 
             this.gestioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clubsToolStripMenuItem,
+            this.toolStripSeparator2,
             this.categoriesToolStripMenuItem,
+            this.toolStripSeparator1,
             this.paisesToolStripMenuItem});
             this.gestioToolStripMenuItem.Enabled = false;
             this.gestioToolStripMenuItem.Name = "gestioToolStripMenuItem";
-            this.gestioToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.gestioToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.gestioToolStripMenuItem.Text = "Gestio";
             // 
             // clubsToolStripMenuItem
             // 
             this.clubsToolStripMenuItem.Name = "clubsToolStripMenuItem";
-            this.clubsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.clubsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.clubsToolStripMenuItem.Text = "Clubs";
             this.clubsToolStripMenuItem.Click += new System.EventHandler(this.clubsToolStripMenuItem_Click);
             // 
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.categoriesToolStripMenuItem.Text = "Categories";
             this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
             // 
             // paisesToolStripMenuItem
             // 
             this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
-            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.paisesToolStripMenuItem.Text = "Paises";
             this.paisesToolStripMenuItem.Click += new System.EventHandler(this.paisesToolStripMenuItem_Click);
             // 
             // consultesToolStripMenuItem
             // 
             this.consultesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clubsToolStripMenuItem1,
             this.galeriaToolStripMenuItem,
             this.reseñasToolStripMenuItem});
             this.consultesToolStripMenuItem.Enabled = false;
             this.consultesToolStripMenuItem.Name = "consultesToolStripMenuItem";
-            this.consultesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.consultesToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
             this.consultesToolStripMenuItem.Text = "Consultes";
             // 
             // galeriaToolStripMenuItem
             // 
             this.galeriaToolStripMenuItem.Name = "galeriaToolStripMenuItem";
-            this.galeriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.galeriaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.galeriaToolStripMenuItem.Text = "Galeria";
             this.galeriaToolStripMenuItem.Click += new System.EventHandler(this.galeriaToolStripMenuItem_Click);
             // 
             // reseñasToolStripMenuItem
             // 
             this.reseñasToolStripMenuItem.Name = "reseñasToolStripMenuItem";
-            this.reseñasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reseñasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.reseñasToolStripMenuItem.Text = "Reseñas";
             this.reseñasToolStripMenuItem.Click += new System.EventHandler(this.reseñasToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(221, 6);
+            // 
+            // clubsToolStripMenuItem1
+            // 
+            this.clubsToolStripMenuItem1.Name = "clubsToolStripMenuItem1";
+            this.clubsToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.clubsToolStripMenuItem1.Text = "Clubs";
+            this.clubsToolStripMenuItem1.Click += new System.EventHandler(this.clubsToolStripMenuItem1_Click);
+            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.menuStrip1);
@@ -170,6 +200,10 @@
         private System.Windows.Forms.ToolStripMenuItem paisesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem galeriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reseñasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem clubsToolStripMenuItem1;
     }
 }
 

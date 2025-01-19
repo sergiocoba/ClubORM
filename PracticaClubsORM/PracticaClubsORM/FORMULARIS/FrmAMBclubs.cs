@@ -25,13 +25,11 @@ namespace PracticaClubsORM.FORMULARIS
         //private ClubsEntities4 clubbd { get; set; } = new ClubsEntities4();
 
         //variables
-        Boolean bFirst = true;
         WebBrowser webBrowser1 = new WebBrowser();
         Char op { get; set; } = '\0';
         string base64Image;
         string webImage;
         private WebView2 webview;
-
 
         public String IdClub { get; set; }
         public String NomClub { get; set; } = "";
@@ -44,6 +42,9 @@ namespace PracticaClubsORM.FORMULARIS
         public String pais { get; set; } = "";
         public String paginaWeb { get; set; } = "";
         public int idPais { get; set; }
+        public int contactoID {  get; set; }
+        public int ubicacionID { get; set; }
+        public String logo { get; set; } = "";
 
         public FrmAMBclubs(char opcio, ClubsEntities4 bd)
         {
@@ -65,9 +66,9 @@ namespace PracticaClubsORM.FORMULARIS
 
             switch (op)
             {
-                case 'A': this.Text = "Alta d'un nou club"; break;
-
-                case 'M': this.Text = "Modificar el clubs"; break;
+                case 'A': this.Text = "Alta de un club"; break;
+                case 'B': this.Text = "borrar club"; break;
+                case 'M': this.Text = "Modificar el club"; break;
 
             }
 
@@ -86,9 +87,36 @@ namespace PracticaClubsORM.FORMULARIS
             else
             {
                 cbPais.SelectedValue = idPais;
+               
             }
 
+            if (!string.IsNullOrEmpty(logo))
+            {
+                try
+                {
+                    pblogo.Image = Base64ToImage(logo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar la imagen del logo: {ex.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+
+            tbNom.Enabled = (op != 'B');
+            tbTelefono.Enabled = (op != 'B');
+            tbCorreo.Enabled = (op != 'B');
+            tbFundacion.Enabled = (op != 'B');
+            tbCiudad.Enabled = (op != 'B');
+            tbDireccion.Enabled = (op != 'B');
+            tbCodigoPostal.Enabled = (op != 'B');
+            cbPais.Enabled = (op != 'B');
+            tbWeb.Enabled = (op != 'B');
+            button1.Enabled = (op != 'B');
+
         }
+
+
 
 
         private void omplirComboPaises()
@@ -133,6 +161,15 @@ namespace PracticaClubsORM.FORMULARIS
             return Convert.ToBase64String(imageBytes);
         }
 
+        private Image Base64ToImage(string base64String)
+        {
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
         private void btNo_Click(object sender, EventArgs e)
         {
             NomClub = "";
@@ -147,6 +184,7 @@ namespace PracticaClubsORM.FORMULARIS
                 switch (op)
                 {
                     case 'A': xb = addClub(); break;
+                    case 'B': xb = delClub(); break;
                     case 'M': xb = ModClub(); break;
                 }
                 if (xb)
@@ -154,6 +192,26 @@ namespace PracticaClubsORM.FORMULARIS
                     this.Close();
                 }
             }
+        }
+
+        private bool delClub()
+        {
+            Boolean xb = false;
+            Clubs cl = clubbd.Clubs.Find(int.Parse(IdClub));
+            Contacto c = clubbd.Contacto.Find(contactoID);
+            Ubicacion u = clubbd.Ubicacion.Find(ubicacionID);
+
+
+            if (cl != null && c != null && u != null)
+            {
+                clubbd.Clubs.Remove(cl);
+                clubbd.Contacto.Remove(c);
+                clubbd.Ubicacion.Remove(u);
+                xb = ferCanvis();
+            }
+      
+            
+            return xb;
         }
 
         private Boolean vDades()
@@ -286,14 +344,15 @@ namespace PracticaClubsORM.FORMULARIS
                 e.Fundacion = int.Parse(tbFundacion.Text.Trim());
 
 
-                Contacto c = clubbd.Contacto.Find(e.ClubID);
+                int clubID = e.ClubID;
+                Contacto c = clubbd.Contacto.Find(contactoID);
                 if (c != null)
                 {
                     c.Telefono = tbTelefono.Text.Trim();
                     c.Email = tbCorreo.Text.Trim();
                 }
 
-                Ubicacion u = clubbd.Ubicacion.Find(e.ClubID);
+                Ubicacion u = clubbd.Ubicacion.Find(ubicacionID);
                 if (u != null)
                 {
                     u.Direccion = tbDireccion.Text.Trim();
@@ -320,6 +379,7 @@ namespace PracticaClubsORM.FORMULARIS
                 {
                     IdClub = "";
                     NomClub = "";
+                    
                 }
                 
             }
